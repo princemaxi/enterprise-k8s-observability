@@ -1,0 +1,60 @@
+graph TB
+    Internet((Internet))
+    Internet --> Ingress[ingress-nginx<br/>general node pool]
+
+    subgraph EKS["EKS Cluster: logging-eks (eu-west-2)"]
+        subgraph appsns["namespace: applications"]
+            OrderAPI["Order API x3<br/>Flask + gunicorn<br/>JSON logs to stdout"]
+        end
+
+        subgraph loggingns["namespace: logging"]
+            Filebeat["Filebeat DaemonSet<br/>runs on general pool nodes"]
+        end
+
+        subgraph esns["namespace: elastic-system"]
+            Kibana["Kibana x2"]
+
+            subgraph esmaster["es-master node pool (3x m6i.large)"]
+                M1[master-0]
+                M2[master-1]
+                M3[master-2]
+            end
+
+            subgraph esdata["es-data node pool (3x r6i.xlarge)"]
+                D1[data-0]
+                D2[data-1]
+                D3[data-2]
+            end
+        end
+
+        Vault["Vault Agent Injector<br/>(sidecar)"]
+    end
+
+    S3[("S3 Snapshot Bucket<br/>Glacier @ 30d, expire @ 365d")]
+
+    Ingress -->|TLS via cert-manager<br/>+ Route53 DNS-01| Kibana
+    Ingress -->|TLS| OrderAPI
+
+    OrderAPI -.->|"container log file<br/>/var/log/containers/*.log"| Filebeat
+    Filebeat -->|"HTTPS, bulk index<br/>app-logs-* alias"| D1
+    Filebeat --> D2
+    Filebeat --> D3
+
+    Kibana -->|HTTPS 9200| D1
+
+    M1 <-->|transport 9300, quorum| M2
+    M2 <-->|transport 9300| M3
+    M1 <--> D1
+    M2 <--> D2
+    M3 <--> D3
+
+    D1 -->|SLM nightly snapshot<br/>IRSA, no static keys| S3
+    D2 --> S3
+    D3 --> S3
+
+    Vault -.->|injects DB_PASSWORD,<br/>EXTERNAL_API_KEY| OrderAPI
+    Vault -.->|injects ES credentials| Filebeat
+
+    style esmaster fill:#eef,stroke:#446
+    style esdata fill:#efe,stroke:#464
+    style S3 fill:#fef,stroke:#646

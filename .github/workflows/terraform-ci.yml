@@ -1,0 +1,79 @@
+name: terraform-ci
+
+on:
+  pull_request:
+    paths:
+      - "terraform/**"
+      - "scripts/tf-xref-check.py"
+  push:
+    branches: [main]
+    paths:
+      - "terraform/**"
+      - "scripts/tf-xref-check.py"
+
+jobs:
+  xref-check:
+    # Runs before the real `terraform validate` below — catches dangling
+    # var/module/resource references and duplicate resource addresses in
+    # seconds, without needing any provider plugins or AWS credentials.
+    # Built for this project after several incidents where a dangling
+    # reference or duplicate resource name only surfaced at `terraform
+    # apply` time, mid-way through a 20+ minute run.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install python-hcl2
+      - run: |
+          python3 scripts/tf-xref-check.py \
+            terraform/modules/logging-platform \
+            terraform/environments/dev \
+            terraform/environments/sit \
+            terraform/environments/prod
+
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: shellcheck every bash script
+        run: |
+          sudo apt-get update && sudo apt-get install -y shellcheck
+          find . -name '*.sh' -print0 | xargs -0 -n1 shellcheck -e SC1091
+
+  validate:
+    needs: [xref-check]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [dev, sit, prod]
+    defaults:
+      run:
+        working-directory: terraform/environments/${{ matrix.environment }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.8"
+
+      - name: terraform fmt (check only, doesn't modify)
+        run: terraform fmt -check -recursive
+
+      # No backend.hcl in CI (it's gitignored, real values are per-person) —
+      # -backend=false is enough to validate syntax/module wiring without
+      # needing real state or AWS credentials.
+      - name: terraform init (no backend)
+        run: terraform init -backend=false
+
+      - name: terraform validate
+        run: terraform validate
+
+      - name: Setup tflint
+        uses: terraform-linters/setup-tflint@v4
+
+      - name: tflint
+        run: |
+          tflint --init
+          tflint

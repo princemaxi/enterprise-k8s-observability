@@ -1,0 +1,3381 @@
+
+Warning: Deprecated Parameter
+
+The parameter "dynamodb_table" is deprecated. Use parameter "use_lockfile" instead.
+Acquiring state lock. This may take a few moments...
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].data.aws_partition.current: Reading...
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].data.aws_partition.current: Reading...
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].data.aws_partition.current: Reading...
+module.logging_platform.module.eks.data.aws_iam_policy_document.assume_role_policy[0]: Reading...
+module.logging_platform.module.eks.aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/eks/logging-eks-dev/cluster]
+module.logging_platform.module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-035fa38c60898493c]
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].data.aws_partition.current: Read complete after 0s [id=aws]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].data.aws_partition.current: Read complete after 0s [id=aws]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].data.aws_partition.current: Read complete after 0s [id=aws]
+module.logging_platform.module.eks.data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2830595799]
+data.aws_ecr_authorization_token.this: Reading...
+module.logging_platform.module.eks.module.kms.data.aws_partition.current[0]: Reading...
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].data.aws_iam_policy_document.assume_role_policy[0]: Reading...
+data.aws_caller_identity.current: Reading...
+module.logging_platform.module.eks.data.aws_partition.current[0]: Reading...
+module.logging_platform.module.eks.data.aws_partition.current[0]: Read complete after 0s [id=aws]
+module.logging_platform.module.eks.module.kms.data.aws_partition.current[0]: Read complete after 0s [id=aws]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].data.aws_iam_policy_document.assume_role_policy[0]: Reading...
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].data.aws_iam_policy_document.assume_role_policy[0]: Reading...
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2560088296]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].data.aws_caller_identity.current: Reading...
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].data.aws_caller_identity.current: Reading...
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2560088296]
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].data.aws_caller_identity.current: Reading...
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2560088296]
+module.logging_platform.module.eks.data.aws_caller_identity.current[0]: Reading...
+module.logging_platform.module.eks.module.kms.data.aws_caller_identity.current[0]: Reading...
+module.logging_platform.aws_s3_bucket.es_snapshots: Refreshing state... [id=qyon-logging-es-snapshots-dev]
+data.aws_caller_identity.current: Read complete after 0s [id=686255973523]
+module.logging_platform.module.eks.aws_iam_role.this[0]: Refreshing state... [id=logging-eks-dev-cluster-20260908084639021900000002]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].data.aws_caller_identity.current: Read complete after 1s [id=686255973523]
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].aws_iam_role.this[0]: Refreshing state... [id=general-eks-node-group-20260908084639022100000003]
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].data.aws_caller_identity.current: Read complete after 1s [id=686255973523]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].aws_iam_role.this[0]: Refreshing state... [id=es-data-eks-node-group-20260908084639022600000005]
+module.logging_platform.module.eks.data.aws_caller_identity.current[0]: Read complete after 1s [id=686255973523]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].aws_iam_role.this[0]: Refreshing state... [id=es-master-eks-node-group-20260908084639021600000001]
+module.logging_platform.module.eks.module.kms.data.aws_caller_identity.current[0]: Read complete after 1s [id=686255973523]
+module.logging_platform.module.eks.data.aws_iam_policy_document.custom[0]: Reading...
+module.logging_platform.module.eks.data.aws_iam_policy_document.custom[0]: Read complete after 0s [id=513122117]
+module.logging_platform.module.eks.data.aws_iam_session_context.current[0]: Reading...
+module.logging_platform.module.eks.data.aws_iam_session_context.current[0]: Read complete after 0s [id=arn:aws:iam::686255973523:user/max]
+module.logging_platform.module.eks.aws_iam_policy.custom[0]: Refreshing state... [id=arn:aws:iam::686255973523:policy/logging-eks-dev-cluster-20260908084639022100000004]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].data.aws_caller_identity.current: Read complete after 1s [id=686255973523]
+data.aws_ecr_authorization_token.this: Read complete after 1s [id=eu-west-2]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"]: Refreshing state... [id=es-master-eks-node-group-20260908084639021600000001-20260908084641731400000010]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"]: Refreshing state... [id=es-data-eks-node-group-20260908084639022600000005-2026090808464123420000000c]
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"]: Refreshing state... [id=general-eks-node-group-20260908084639022100000003-20260908084641038100000009]
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"]: Refreshing state... [id=general-eks-node-group-20260908084639022100000003-2026090808464165740000000e]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"]: Refreshing state... [id=es-data-eks-node-group-20260908084639022600000005-2026090808464105030000000a]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"]: Refreshing state... [id=es-master-eks-node-group-20260908084639021600000001-20260908084641731500000011]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"]: Refreshing state... [id=es-data-eks-node-group-20260908084639022600000005-2026090808464122250000000b]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"]: Refreshing state... [id=es-master-eks-node-group-20260908084639021600000001-2026090808464125030000000d]
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"]: Refreshing state... [id=general-eks-node-group-20260908084639022100000003-2026090808464170620000000f]
+module.logging_platform.module.eks.aws_iam_role_policy_attachment.custom[0]: Refreshing state... [id=logging-eks-dev-cluster-20260908084639021900000002-20260908084640962400000006]
+module.logging_platform.module.eks.aws_iam_role_policy_attachment.this["AmazonEKSClusterPolicy"]: Refreshing state... [id=logging-eks-dev-cluster-20260908084639021900000002-20260908084640970300000008]
+module.logging_platform.module.eks.aws_iam_role_policy_attachment.this["AmazonEKSVPCResourceController"]: Refreshing state... [id=logging-eks-dev-cluster-20260908084639021900000002-20260908084640970200000007]
+module.logging_platform.module.vpc.aws_subnet.private[1]: Refreshing state... [id=subnet-0cfb88650bdd81b49]
+module.logging_platform.module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-0a0b596ae06102537]
+module.logging_platform.module.vpc.aws_subnet.private[2]: Refreshing state... [id=subnet-06488299b065c78dd]
+module.logging_platform.module.eks.module.kms.data.aws_iam_policy_document.this[0]: Reading...
+module.logging_platform.module.eks.module.kms.data.aws_iam_policy_document.this[0]: Read complete after 0s [id=406583999]
+module.logging_platform.module.eks.aws_security_group.cluster[0]: Refreshing state... [id=sg-0bfca7882424e936f]
+module.logging_platform.module.eks.aws_security_group.node[0]: Refreshing state... [id=sg-0cf9399ef6b957393]
+module.logging_platform.module.eks.module.kms.aws_kms_key.this[0]: Refreshing state... [id=3ea6dcd7-54d2-45da-9d38-3f7156666847]
+module.logging_platform.module.eks.aws_security_group_rule.node["egress_all"]: Refreshing state... [id=sgrule-3098056896]
+module.logging_platform.module.eks.aws_security_group_rule.node["ingress_nodes_ephemeral"]: Refreshing state... [id=sgrule-201031564]
+module.logging_platform.module.eks.aws_security_group_rule.node["ingress_cluster_9443_webhook"]: Refreshing state... [id=sgrule-1928706767]
+module.logging_platform.module.eks.aws_security_group_rule.node["ingress_cluster_443"]: Refreshing state... [id=sgrule-3242384981]
+module.logging_platform.module.eks.aws_security_group_rule.node["ingress_cluster_6443_webhook"]: Refreshing state... [id=sgrule-84456741]
+module.logging_platform.module.eks.aws_security_group_rule.node["ingress_self_coredns_tcp"]: Refreshing state... [id=sgrule-3245085917]
+module.logging_platform.module.eks.aws_security_group_rule.node["ingress_cluster_4443_webhook"]: Refreshing state... [id=sgrule-3427455667]
+module.logging_platform.module.eks.aws_security_group_rule.node["ingress_cluster_8443_webhook"]: Refreshing state... [id=sgrule-374638852]
+module.logging_platform.module.eks.aws_security_group_rule.node["ingress_self_coredns_udp"]: Refreshing state... [id=sgrule-1697888050]
+module.logging_platform.module.eks.aws_security_group_rule.node["ingress_cluster_kubelet"]: Refreshing state... [id=sgrule-1992167540]
+module.logging_platform.module.eks.aws_security_group_rule.cluster["ingress_nodes_443"]: Refreshing state... [id=sgrule-335993430]
+module.logging_platform.module.eks.module.kms.aws_kms_alias.this["cluster"]: Refreshing state... [id=alias/eks/logging-eks-dev]
+module.logging_platform.module.eks.aws_iam_policy.cluster_encryption[0]: Refreshing state... [id=arn:aws:iam::686255973523:policy/logging-eks-dev-cluster-ClusterEncryption20260908084705088400000014]
+module.logging_platform.module.eks.aws_eks_cluster.this[0]: Refreshing state... [id=logging-eks-dev]
+module.logging_platform.module.eks.aws_iam_role_policy_attachment.cluster_encryption[0]: Refreshing state... [id=logging-eks-dev-cluster-20260908084639021900000002-20260908084706096300000015]
+module.logging_platform.module.eks.data.tls_certificate.this[0]: Reading...
+module.logging_platform.module.eks.data.aws_eks_addon_version.this["kube-proxy"]: Reading...
+module.logging_platform.module.eks.data.aws_eks_addon_version.this["eks-pod-identity-agent"]: Reading...
+module.logging_platform.module.eks.data.aws_eks_addon_version.this["coredns"]: Reading...
+module.logging_platform.module.eks.data.aws_eks_addon_version.this["vpc-cni"]: Reading...
+module.logging_platform.module.eks.data.aws_eks_addon_version.this["aws-ebs-csi-driver"]: Reading...
+module.logging_platform.module.eks.aws_ec2_tag.cluster_primary_security_group["ManagedBy"]: Refreshing state... [id=sg-0d69bde01673fcee4,ManagedBy]
+module.logging_platform.module.eks.aws_ec2_tag.cluster_primary_security_group["Owner"]: Refreshing state... [id=sg-0d69bde01673fcee4,Owner]
+module.logging_platform.module.eks.aws_ec2_tag.cluster_primary_security_group["Environment"]: Refreshing state... [id=sg-0d69bde01673fcee4,Environment]
+module.logging_platform.module.eks.time_sleep.this[0]: Refreshing state... [id=2026-09-08T08:56:25Z]
+module.logging_platform.module.eks.aws_ec2_tag.cluster_primary_security_group["Project"]: Refreshing state... [id=sg-0d69bde01673fcee4,Project]
+module.logging_platform.module.eks.data.aws_eks_addon_version.this["eks-pod-identity-agent"]: Read complete after 0s [id=eks-pod-identity-agent]
+module.logging_platform.module.eks.aws_eks_access_entry.this["cluster_creator"]: Refreshing state... [id=logging-eks-dev:arn:aws:iam::686255973523:user/max]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].module.user_data.null_resource.validate_cluster_service_cidr: Refreshing state... [id=4520804320038444990]
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].module.user_data.null_resource.validate_cluster_service_cidr: Refreshing state... [id=747028075230965901]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].module.user_data.null_resource.validate_cluster_service_cidr: Refreshing state... [id=5690529888558253752]
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].aws_launch_template.this[0]: Refreshing state... [id=lt-067d7cba3e105fe67]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].aws_launch_template.this[0]: Refreshing state... [id=lt-055b463cf6fbbe943]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].aws_launch_template.this[0]: Refreshing state... [id=lt-04db375b6f40bf24d]
+module.logging_platform.module.eks.data.aws_eks_addon_version.this["vpc-cni"]: Read complete after 0s [id=vpc-cni]
+module.logging_platform.module.eks.data.tls_certificate.this[0]: Read complete after 0s [id=1dc76326fb30ec85b6567240ab789feda42aabfa]
+module.logging_platform.module.eks.aws_iam_openid_connect_provider.oidc_provider[0]: Refreshing state... [id=arn:aws:iam::686255973523:oidc-provider/oidc.eks.eu-west-2.amazonaws.com/id/961CE9E6784E8804026792871A8F253A]
+module.logging_platform.module.eks.module.eks_managed_node_group["general"].aws_eks_node_group.this[0]: Refreshing state... [id=logging-eks-dev:general-2026090808563573600000001e]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].aws_eks_node_group.this[0]: Refreshing state... [id=logging-eks-dev:es-master-20260908085635736300000020]
+module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].aws_eks_node_group.this[0]: Refreshing state... [id=logging-eks-dev:es-data-2026090808563572870000001c]
+module.logging_platform.module.eks.data.aws_eks_addon_version.this["kube-proxy"]: Read complete after 1s [id=kube-proxy]
+module.logging_platform.module.eks.data.aws_eks_addon_version.this["coredns"]: Read complete after 1s [id=coredns]
+module.logging_platform.module.eks.data.aws_eks_addon_version.this["aws-ebs-csi-driver"]: Read complete after 1s [id=aws-ebs-csi-driver]
+module.logging_platform.module.eks.aws_eks_access_policy_association.this["cluster_creator_admin"]: Refreshing state... [id=logging-eks-dev#arn:aws:iam::686255973523:user/max#arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy]
+
+Note: Objects have changed outside of Terraform
+
+Terraform detected the following changes made outside of Terraform since the
+last "terraform apply" which may have affected this plan:
+
+  # module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].aws_eks_node_group.this[0] has changed
+  ~ resource "aws_eks_node_group" "this" {
+      + arn                    = "arn:aws:eks:eu-west-2:686255973523:nodegroup/logging-eks-dev/es-data-2026090808563572870000001c/a0d0401d-e284-4e49-78ae-94eb5bffcd9f"
+        id                     = "logging-eks-dev:es-data-2026090808563572870000001c"
+      + resources              = [
+          + {
+              + autoscaling_groups              = [
+                  + {
+                      + name = "eks-es-data-2026090808563572870000001c-a0d0401d-e284-4e49-78ae-94eb5bffcd9f"
+                    },
+                ]
+                # (1 unchanged attribute hidden)
+            },
+        ]
+      + status                 = "CREATE_FAILED"
+        tags                   = {
+            "Environment" = "dev"
+            "ManagedBy"   = "terraform"
+            "Name"        = "es-data"
+            "Owner"       = "Qyon Limited"
+            "Project"     = "enterprise-k8s-logging"
+        }
+        # (9 unchanged attributes hidden)
+
+        # (5 unchanged blocks hidden)
+    }
+
+  # module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].aws_eks_node_group.this[0] has changed
+  ~ resource "aws_eks_node_group" "this" {
+      + arn                    = "arn:aws:eks:eu-west-2:686255973523:nodegroup/logging-eks-dev/es-master-20260908085635736300000020/92d0401d-e285-e9f9-b648-f25245475399"
+        id                     = "logging-eks-dev:es-master-20260908085635736300000020"
+      + resources              = [
+          + {
+              + autoscaling_groups              = [
+                  + {
+                      + name = "eks-es-master-20260908085635736300000020-92d0401d-e285-e9f9-b648-f25245475399"
+                    },
+                ]
+                # (1 unchanged attribute hidden)
+            },
+        ]
+      + status                 = "CREATE_FAILED"
+        tags                   = {
+            "Environment" = "dev"
+            "ManagedBy"   = "terraform"
+            "Name"        = "es-master"
+            "Owner"       = "Qyon Limited"
+            "Project"     = "enterprise-k8s-logging"
+        }
+        # (9 unchanged attributes hidden)
+
+        # (5 unchanged blocks hidden)
+    }
+
+  # module.logging_platform.module.eks.module.eks_managed_node_group["general"].aws_eks_node_group.this[0] has changed
+  ~ resource "aws_eks_node_group" "this" {
+      + arn                    = "arn:aws:eks:eu-west-2:686255973523:nodegroup/logging-eks-dev/general-2026090808563573600000001e/7cd0401d-e285-7b04-deba-599a7aaa3f24"
+        id                     = "logging-eks-dev:general-2026090808563573600000001e"
+      + resources              = [
+          + {
+              + autoscaling_groups              = [
+                  + {
+                      + name = "eks-general-2026090808563573600000001e-7cd0401d-e285-7b04-deba-599a7aaa3f24"
+                    },
+                ]
+                # (1 unchanged attribute hidden)
+            },
+        ]
+      + status                 = "CREATE_FAILED"
+        tags                   = {
+            "Environment" = "dev"
+            "ManagedBy"   = "terraform"
+            "Name"        = "general"
+            "Owner"       = "Qyon Limited"
+            "Project"     = "enterprise-k8s-logging"
+        }
+        # (9 unchanged attributes hidden)
+
+        # (4 unchanged blocks hidden)
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the
+relevant attributes using ignore_changes, the following plan may include
+actions to undo or respond to these changes.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
++/- create replacement and then destroy
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # module.logging_platform.data.kubernetes_secret_v1.es_elastic_user will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "kubernetes_secret_v1" "es_elastic_user" {
+      + data      = (sensitive value)
+      + id        = (known after apply)
+      + immutable = (known after apply)
+      + type      = (known after apply)
+
+      + metadata {
+          + generation       = (known after apply)
+          + name             = "logging-es-elastic-user"
+          + namespace        = "elastic-system"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.data.kubernetes_secret_v1.es_http_ca will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "kubernetes_secret_v1" "es_http_ca" {
+      + data      = (sensitive value)
+      + id        = (known after apply)
+      + immutable = (known after apply)
+      + type      = (known after apply)
+
+      + metadata {
+          + generation       = (known after apply)
+          + name             = "logging-es-http-certs-public"
+          + namespace        = "elastic-system"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.aws_ecr_lifecycle_policy.order_api will be created
+  + resource "aws_ecr_lifecycle_policy" "order_api" {
+      + id          = (known after apply)
+      + policy      = jsonencode(
+            {
+              + rules = [
+                  + {
+                      + action       = {
+                          + type = "expire"
+                        }
+                      + description  = "Keep last 10 images"
+                      + rulePriority = 1
+                      + selection    = {
+                          + countNumber = 10
+                          + countType   = "imageCountMoreThan"
+                          + tagStatus   = "any"
+                        }
+                    },
+                ]
+            }
+        )
+      + registry_id = (known after apply)
+      + repository  = "logging-eks-dev-order-api"
+    }
+
+  # module.logging_platform.aws_ecr_repository.order_api will be created
+  + resource "aws_ecr_repository" "order_api" {
+      + arn                  = (known after apply)
+      + id                   = (known after apply)
+      + image_tag_mutability = "MUTABLE"
+      + name                 = "logging-eks-dev-order-api"
+      + registry_id          = (known after apply)
+      + repository_url       = (known after apply)
+      + tags_all             = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+
+      + image_scanning_configuration {
+          + scan_on_push = true
+        }
+    }
+
+  # module.logging_platform.aws_eks_pod_identity_association.aws_load_balancer_controller will be created
+  + resource "aws_eks_pod_identity_association" "aws_load_balancer_controller" {
+      + association_arn = (known after apply)
+      + association_id  = (known after apply)
+      + cluster_name    = "logging-eks-dev"
+      + id              = (known after apply)
+      + namespace       = "kube-system"
+      + role_arn        = (known after apply)
+      + service_account = "aws-load-balancer-controller"
+      + tags_all        = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+    }
+
+  # module.logging_platform.aws_eks_pod_identity_association.cert_manager will be created
+  + resource "aws_eks_pod_identity_association" "cert_manager" {
+      + association_arn = (known after apply)
+      + association_id  = (known after apply)
+      + cluster_name    = "logging-eks-dev"
+      + id              = (known after apply)
+      + namespace       = "cert-manager"
+      + role_arn        = (known after apply)
+      + service_account = "cert-manager"
+      + tags_all        = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+    }
+
+  # module.logging_platform.aws_eks_pod_identity_association.ebs_csi will be created
+  + resource "aws_eks_pod_identity_association" "ebs_csi" {
+      + association_arn = (known after apply)
+      + association_id  = (known after apply)
+      + cluster_name    = "logging-eks-dev"
+      + id              = (known after apply)
+      + namespace       = "kube-system"
+      + role_arn        = (known after apply)
+      + service_account = "ebs-csi-controller-sa"
+      + tags_all        = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+    }
+
+  # module.logging_platform.aws_eks_pod_identity_association.external_dns will be created
+  + resource "aws_eks_pod_identity_association" "external_dns" {
+      + association_arn = (known after apply)
+      + association_id  = (known after apply)
+      + cluster_name    = "logging-eks-dev"
+      + id              = (known after apply)
+      + namespace       = "external-dns"
+      + role_arn        = (known after apply)
+      + service_account = "external-dns"
+      + tags_all        = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+    }
+
+  # module.logging_platform.aws_eks_pod_identity_association.vault will be created
+  + resource "aws_eks_pod_identity_association" "vault" {
+      + association_arn = (known after apply)
+      + association_id  = (known after apply)
+      + cluster_name    = "logging-eks-dev"
+      + id              = (known after apply)
+      + namespace       = "vault"
+      + role_arn        = (known after apply)
+      + service_account = "vault"
+      + tags_all        = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+    }
+
+  # module.logging_platform.aws_iam_access_key.es_snapshots will be created
+  + resource "aws_iam_access_key" "es_snapshots" {
+      + create_date                    = (known after apply)
+      + encrypted_secret               = (known after apply)
+      + encrypted_ses_smtp_password_v4 = (known after apply)
+      + id                             = (known after apply)
+      + key_fingerprint                = (known after apply)
+      + secret                         = (sensitive value)
+      + ses_smtp_password_v4           = (sensitive value)
+      + status                         = "Active"
+      + user                           = "logging-eks-dev-es-snapshots"
+    }
+
+  # module.logging_platform.aws_iam_role.aws_load_balancer_controller will be created
+  + resource "aws_iam_role" "aws_load_balancer_controller" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = [
+                          + "sts:AssumeRole",
+                          + "sts:TagSession",
+                        ]
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "pods.eks.amazonaws.com"
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "logging-eks-dev-aws-lb-controller"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + unique_id             = (known after apply)
+
+      + inline_policy (known after apply)
+    }
+
+  # module.logging_platform.aws_iam_role.cert_manager will be created
+  + resource "aws_iam_role" "cert_manager" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = [
+                          + "sts:AssumeRole",
+                          + "sts:TagSession",
+                        ]
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "pods.eks.amazonaws.com"
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "logging-eks-dev-cert-manager"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + unique_id             = (known after apply)
+
+      + inline_policy (known after apply)
+    }
+
+  # module.logging_platform.aws_iam_role.ebs_csi will be created
+  + resource "aws_iam_role" "ebs_csi" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = [
+                          + "sts:AssumeRole",
+                          + "sts:TagSession",
+                        ]
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "pods.eks.amazonaws.com"
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "logging-eks-dev-ebs-csi"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + unique_id             = (known after apply)
+
+      + inline_policy (known after apply)
+    }
+
+  # module.logging_platform.aws_iam_role.external_dns will be created
+  + resource "aws_iam_role" "external_dns" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = [
+                          + "sts:AssumeRole",
+                          + "sts:TagSession",
+                        ]
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "pods.eks.amazonaws.com"
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "logging-eks-dev-external-dns"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + unique_id             = (known after apply)
+
+      + inline_policy (known after apply)
+    }
+
+  # module.logging_platform.aws_iam_role.vault_kms will be created
+  + resource "aws_iam_role" "vault_kms" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = [
+                          + "sts:AssumeRole",
+                          + "sts:TagSession",
+                        ]
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "pods.eks.amazonaws.com"
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "logging-eks-dev-vault-kms"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + unique_id             = (known after apply)
+
+      + inline_policy (known after apply)
+    }
+
+  # module.logging_platform.aws_iam_role_policy.aws_load_balancer_controller will be created
+  + resource "aws_iam_role_policy" "aws_load_balancer_controller" {
+      + id          = (known after apply)
+      + name        = "logging-eks-dev-aws-lb-controller"
+      + name_prefix = (known after apply)
+      + policy      = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = [
+                          + "iam:CreateServiceLinkedRole",
+                        ]
+                      + Condition = {
+                          + StringEquals = {
+                              + "iam:AWSServiceName" = "elasticloadbalancing.amazonaws.com"
+                            }
+                        }
+                      + Effect    = "Allow"
+                      + Resource  = "*"
+                    },
+                  + {
+                      + Action   = [
+                          + "ec2:DescribeAccountAttributes",
+                          + "ec2:DescribeAddresses",
+                          + "ec2:DescribeAvailabilityZones",
+                          + "ec2:DescribeInternetGateways",
+                          + "ec2:DescribeVpcs",
+                          + "ec2:DescribeVpcPeeringConnections",
+                          + "ec2:DescribeSubnets",
+                          + "ec2:DescribeSecurityGroups",
+                          + "ec2:DescribeInstances",
+                          + "ec2:DescribeNetworkInterfaces",
+                          + "ec2:DescribeTags",
+                          + "ec2:GetCoipPoolUsage",
+                          + "ec2:DescribeCoipPools",
+                          + "ec2:GetSecurityGroupsForVpc",
+                          + "ec2:DescribeIpamPools",
+                          + "ec2:DescribeRouteTables",
+                          + "elasticloadbalancing:DescribeLoadBalancers",
+                          + "elasticloadbalancing:DescribeLoadBalancerAttributes",
+                          + "elasticloadbalancing:DescribeListeners",
+                          + "elasticloadbalancing:DescribeListenerCertificates",
+                          + "elasticloadbalancing:DescribeSSLPolicies",
+                          + "elasticloadbalancing:DescribeRules",
+                          + "elasticloadbalancing:DescribeTargetGroups",
+                          + "elasticloadbalancing:DescribeTargetGroupAttributes",
+                          + "elasticloadbalancing:DescribeTargetHealth",
+                          + "elasticloadbalancing:DescribeTags",
+                          + "elasticloadbalancing:DescribeTrustStores",
+                          + "elasticloadbalancing:DescribeListenerAttributes",
+                          + "elasticloadbalancing:DescribeCapacityReservation",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                  + {
+                      + Action   = [
+                          + "cognito-idp:DescribeUserPoolClient",
+                          + "acm:ListCertificates",
+                          + "acm:DescribeCertificate",
+                          + "iam:ListServerCertificates",
+                          + "iam:GetServerCertificate",
+                          + "waf-regional:GetWebACL",
+                          + "waf-regional:GetWebACLForResource",
+                          + "waf-regional:AssociateWebACL",
+                          + "waf-regional:DisassociateWebACL",
+                          + "wafv2:GetWebACL",
+                          + "wafv2:GetWebACLForResource",
+                          + "wafv2:AssociateWebACL",
+                          + "wafv2:DisassociateWebACL",
+                          + "shield:GetSubscriptionState",
+                          + "shield:DescribeProtection",
+                          + "shield:CreateProtection",
+                          + "shield:DeleteProtection",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                  + {
+                      + Action   = [
+                          + "ec2:AuthorizeSecurityGroupIngress",
+                          + "ec2:RevokeSecurityGroupIngress",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                  + {
+                      + Action   = [
+                          + "ec2:CreateSecurityGroup",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                  + {
+                      + Action    = [
+                          + "ec2:CreateTags",
+                        ]
+                      + Condition = {
+                          + Null         = {
+                              + "aws:RequestTag/elbv2.k8s.aws/cluster" = "false"
+                            }
+                          + StringEquals = {
+                              + "ec2:CreateAction" = "CreateSecurityGroup"
+                            }
+                        }
+                      + Effect    = "Allow"
+                      + Resource  = "arn:aws:ec2:*:*:security-group/*"
+                    },
+                  + {
+                      + Action    = [
+                          + "ec2:CreateTags",
+                          + "ec2:DeleteTags",
+                        ]
+                      + Condition = {
+                          + Null = {
+                              + "aws:RequestTag/elbv2.k8s.aws/cluster"  = "true"
+                              + "aws:ResourceTag/elbv2.k8s.aws/cluster" = "false"
+                            }
+                        }
+                      + Effect    = "Allow"
+                      + Resource  = "arn:aws:ec2:*:*:security-group/*"
+                    },
+                  + {
+                      + Action    = [
+                          + "ec2:AuthorizeSecurityGroupIngress",
+                          + "ec2:RevokeSecurityGroupIngress",
+                          + "ec2:DeleteSecurityGroup",
+                        ]
+                      + Condition = {
+                          + Null = {
+                              + "aws:ResourceTag/elbv2.k8s.aws/cluster" = "false"
+                            }
+                        }
+                      + Effect    = "Allow"
+                      + Resource  = "*"
+                    },
+                  + {
+                      + Action    = [
+                          + "elasticloadbalancing:CreateLoadBalancer",
+                          + "elasticloadbalancing:CreateTargetGroup",
+                        ]
+                      + Condition = {
+                          + Null = {
+                              + "aws:RequestTag/elbv2.k8s.aws/cluster" = "false"
+                            }
+                        }
+                      + Effect    = "Allow"
+                      + Resource  = "*"
+                    },
+                  + {
+                      + Action   = [
+                          + "elasticloadbalancing:CreateListener",
+                          + "elasticloadbalancing:DeleteListener",
+                          + "elasticloadbalancing:CreateRule",
+                          + "elasticloadbalancing:DeleteRule",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                  + {
+                      + Action    = [
+                          + "elasticloadbalancing:AddTags",
+                          + "elasticloadbalancing:RemoveTags",
+                        ]
+                      + Condition = {
+                          + Null = {
+                              + "aws:RequestTag/elbv2.k8s.aws/cluster"  = "true"
+                              + "aws:ResourceTag/elbv2.k8s.aws/cluster" = "false"
+                            }
+                        }
+                      + Effect    = "Allow"
+                      + Resource  = [
+                          + "arn:aws:elasticloadbalancing:*:*:targetgroup/*/*",
+                          + "arn:aws:elasticloadbalancing:*:*:loadbalancer/net/*/*",
+                          + "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*/*",
+                        ]
+                    },
+                  + {
+                      + Action   = [
+                          + "elasticloadbalancing:AddTags",
+                          + "elasticloadbalancing:RemoveTags",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = [
+                          + "arn:aws:elasticloadbalancing:*:*:listener/net/*/*/*",
+                          + "arn:aws:elasticloadbalancing:*:*:listener/app/*/*/*",
+                          + "arn:aws:elasticloadbalancing:*:*:listener-rule/net/*/*/*",
+                          + "arn:aws:elasticloadbalancing:*:*:listener-rule/app/*/*/*",
+                        ]
+                    },
+                  + {
+                      + Action    = [
+                          + "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                          + "elasticloadbalancing:SetIpAddressType",
+                          + "elasticloadbalancing:SetSecurityGroups",
+                          + "elasticloadbalancing:SetSubnets",
+                          + "elasticloadbalancing:DeleteLoadBalancer",
+                          + "elasticloadbalancing:ModifyTargetGroup",
+                          + "elasticloadbalancing:ModifyTargetGroupAttributes",
+                          + "elasticloadbalancing:DeleteTargetGroup",
+                          + "elasticloadbalancing:ModifyListenerAttributes",
+                          + "elasticloadbalancing:ModifyCapacityReservation",
+                          + "elasticloadbalancing:ModifyIpPools",
+                        ]
+                      + Condition = {
+                          + Null = {
+                              + "aws:ResourceTag/elbv2.k8s.aws/cluster" = "false"
+                            }
+                        }
+                      + Effect    = "Allow"
+                      + Resource  = "*"
+                    },
+                  + {
+                      + Action    = [
+                          + "elasticloadbalancing:AddTags",
+                        ]
+                      + Condition = {
+                          + Null         = {
+                              + "aws:RequestTag/elbv2.k8s.aws/cluster" = "false"
+                            }
+                          + StringEquals = {
+                              + "elasticloadbalancing:CreateAction" = [
+                                  + "CreateTargetGroup",
+                                  + "CreateLoadBalancer",
+                                ]
+                            }
+                        }
+                      + Effect    = "Allow"
+                      + Resource  = [
+                          + "arn:aws:elasticloadbalancing:*:*:targetgroup/*/*",
+                          + "arn:aws:elasticloadbalancing:*:*:loadbalancer/net/*/*",
+                          + "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*/*",
+                        ]
+                    },
+                  + {
+                      + Action   = [
+                          + "elasticloadbalancing:RegisterTargets",
+                          + "elasticloadbalancing:DeregisterTargets",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "arn:aws:elasticloadbalancing:*:*:targetgroup/*/*"
+                    },
+                  + {
+                      + Action   = [
+                          + "elasticloadbalancing:SetWebAcl",
+                          + "elasticloadbalancing:ModifyListener",
+                          + "elasticloadbalancing:AddListenerCertificates",
+                          + "elasticloadbalancing:RemoveListenerCertificates",
+                          + "elasticloadbalancing:ModifyRule",
+                          + "elasticloadbalancing:SetRulePriorities",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + role        = (known after apply)
+    }
+
+  # module.logging_platform.aws_iam_role_policy.cert_manager_route53 will be created
+  + resource "aws_iam_role_policy" "cert_manager_route53" {
+      + id          = (known after apply)
+      + name        = "logging-eks-dev-cert-manager-route53-dns01"
+      + name_prefix = (known after apply)
+      + policy      = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action   = "route53:ChangeResourceRecordSets"
+                      + Effect   = "Allow"
+                      + Resource = "arn:aws:route53:::hostedzone/Z09019271I4E7S51C7UCE"
+                    },
+                  + {
+                      + Action   = [
+                          + "route53:ListHostedZonesByName",
+                          + "route53:GetChange",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + role        = (known after apply)
+    }
+
+  # module.logging_platform.aws_iam_role_policy.external_dns will be created
+  + resource "aws_iam_role_policy" "external_dns" {
+      + id          = (known after apply)
+      + name        = "logging-eks-dev-external-dns-route53"
+      + name_prefix = (known after apply)
+      + policy      = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action   = "route53:ChangeResourceRecordSets"
+                      + Effect   = "Allow"
+                      + Resource = "arn:aws:route53:::hostedzone/Z09019271I4E7S51C7UCE"
+                    },
+                  + {
+                      + Action   = [
+                          + "route53:ListHostedZones",
+                          + "route53:ListResourceRecordSets",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + role        = (known after apply)
+    }
+
+  # module.logging_platform.aws_iam_role_policy.vault_kms will be created
+  + resource "aws_iam_role_policy" "vault_kms" {
+      + id          = (known after apply)
+      + name        = "logging-eks-dev-vault-kms-unseal"
+      + name_prefix = (known after apply)
+      + policy      = (known after apply)
+      + role        = (known after apply)
+    }
+
+  # module.logging_platform.aws_iam_role_policy_attachment.ebs_csi will be created
+  + resource "aws_iam_role_policy_attachment" "ebs_csi" {
+      + id         = (known after apply)
+      + policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+      + role       = "logging-eks-dev-ebs-csi"
+    }
+
+  # module.logging_platform.aws_iam_user.es_snapshots will be created
+  + resource "aws_iam_user" "es_snapshots" {
+      + arn           = (known after apply)
+      + force_destroy = false
+      + id            = (known after apply)
+      + name          = "logging-eks-dev-es-snapshots"
+      + path          = "/"
+      + tags_all      = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + unique_id     = (known after apply)
+    }
+
+  # module.logging_platform.aws_iam_user_policy.es_snapshots will be created
+  + resource "aws_iam_user_policy" "es_snapshots" {
+      + id          = (known after apply)
+      + name        = "logging-eks-dev-es-snapshot-s3-access"
+      + name_prefix = (known after apply)
+      + policy      = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action   = [
+                          + "s3:ListBucket",
+                          + "s3:GetBucketLocation",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = [
+                          + "arn:aws:s3:::qyon-logging-es-snapshots-dev",
+                        ]
+                    },
+                  + {
+                      + Action   = [
+                          + "s3:GetObject",
+                          + "s3:PutObject",
+                          + "s3:DeleteObject",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = [
+                          + "arn:aws:s3:::qyon-logging-es-snapshots-dev/*",
+                        ]
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + user        = "logging-eks-dev-es-snapshots"
+    }
+
+  # module.logging_platform.aws_kms_alias.vault_unseal will be created
+  + resource "aws_kms_alias" "vault_unseal" {
+      + arn            = (known after apply)
+      + id             = (known after apply)
+      + name           = "alias/logging-eks-dev-vault-unseal"
+      + name_prefix    = (known after apply)
+      + target_key_arn = (known after apply)
+      + target_key_id  = (known after apply)
+    }
+
+  # module.logging_platform.aws_kms_key.vault_unseal will be created
+  + resource "aws_kms_key" "vault_unseal" {
+      + arn                                = (known after apply)
+      + bypass_policy_lockout_safety_check = false
+      + customer_master_key_spec           = "SYMMETRIC_DEFAULT"
+      + deletion_window_in_days            = 7
+      + description                        = "logging-eks-dev Vault auto-unseal key"
+      + enable_key_rotation                = true
+      + id                                 = (known after apply)
+      + is_enabled                         = true
+      + key_id                             = (known after apply)
+      + key_usage                          = "ENCRYPT_DECRYPT"
+      + multi_region                       = (known after apply)
+      + policy                             = (known after apply)
+      + rotation_period_in_days            = (known after apply)
+      + tags_all                           = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+    }
+
+  # module.logging_platform.aws_s3_bucket_lifecycle_configuration.es_snapshots will be created
+  + resource "aws_s3_bucket_lifecycle_configuration" "es_snapshots" {
+      + bucket                                 = "qyon-logging-es-snapshots-dev"
+      + expected_bucket_owner                  = (known after apply)
+      + id                                     = (known after apply)
+      + transition_default_minimum_object_size = "all_storage_classes_128K"
+
+      + rule {
+          + id     = "expire-old-snapshots"
+          + status = "Enabled"
+            # (1 unchanged attribute hidden)
+
+          + expiration {
+              + days                         = 7
+              + expired_object_delete_marker = false
+            }
+
+          + filter {
+                # (1 unchanged attribute hidden)
+            }
+        }
+    }
+
+  # module.logging_platform.aws_s3_bucket_public_access_block.es_snapshots will be created
+  + resource "aws_s3_bucket_public_access_block" "es_snapshots" {
+      + block_public_acls       = true
+      + block_public_policy     = true
+      + bucket                  = "qyon-logging-es-snapshots-dev"
+      + id                      = (known after apply)
+      + ignore_public_acls      = true
+      + restrict_public_buckets = true
+    }
+
+  # module.logging_platform.aws_s3_bucket_server_side_encryption_configuration.es_snapshots will be created
+  + resource "aws_s3_bucket_server_side_encryption_configuration" "es_snapshots" {
+      + bucket = "qyon-logging-es-snapshots-dev"
+      + id     = (known after apply)
+
+      + rule {
+          + apply_server_side_encryption_by_default {
+              + sse_algorithm     = "AES256"
+                # (1 unchanged attribute hidden)
+            }
+        }
+    }
+
+  # module.logging_platform.aws_s3_bucket_versioning.es_snapshots will be created
+  + resource "aws_s3_bucket_versioning" "es_snapshots" {
+      + bucket = "qyon-logging-es-snapshots-dev"
+      + id     = (known after apply)
+
+      + versioning_configuration {
+          + mfa_delete = (known after apply)
+          + status     = "Enabled"
+        }
+    }
+
+  # module.logging_platform.docker_image.order_api will be created
+  + resource "docker_image" "order_api" {
+      + id          = (known after apply)
+      + image_id    = (known after apply)
+      + name        = (known after apply)
+      + repo_digest = (known after apply)
+      + triggers    = {
+          + "source_hash" = "9eefae5984e8f89b7c86574b015dfe37497d9556"
+        }
+
+      + build {
+          + additional_contexts = []
+          + cache_from          = []
+          + cache_to            = []
+          + context             = "../../../app"
+          + dockerfile          = "Dockerfile"
+          + extra_hosts         = []
+          + remove              = true
+          + security_opt        = []
+          + tag                 = []
+            # (13 unchanged attributes hidden)
+        }
+    }
+
+  # module.logging_platform.docker_registry_image.order_api will be created
+  + resource "docker_registry_image" "order_api" {
+      + id                   = (known after apply)
+      + insecure_skip_verify = false
+      + keep_remotely        = false
+      + name                 = (known after apply)
+      + sha256_digest        = (known after apply)
+    }
+
+  # module.logging_platform.helm_release.aws_load_balancer_controller will be created
+  + resource "helm_release" "aws_load_balancer_controller" {
+      + atomic                     = false
+      + chart                      = "aws-load-balancer-controller"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "aws-load-balancer-controller"
+      + namespace                  = "kube-system"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://aws.github.io/eks-charts"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 300
+      + values                     = [
+          + <<-EOT
+                "clusterName": "logging-eks-dev"
+                "region": "eu-west-2"
+                "serviceAccount":
+                  "create": true
+                  "name": "aws-load-balancer-controller"
+                "vpcId": "vpc-035fa38c60898493c"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "1.8.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # module.logging_platform.helm_release.cert_manager will be created
+  + resource "helm_release" "cert_manager" {
+      + atomic                     = false
+      + chart                      = "cert-manager"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "cert-manager"
+      + namespace                  = "cert-manager"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://charts.jetstack.io"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 300
+      + verify                     = false
+      + version                    = "v1.21.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+
+      + set {
+          + name  = "installCRDs"
+          + value = "true"
+            # (1 unchanged attribute hidden)
+        }
+      + set {
+          + name  = "serviceAccount.name"
+          + value = "cert-manager"
+            # (1 unchanged attribute hidden)
+        }
+    }
+
+  # module.logging_platform.helm_release.eck_operator will be created
+  + resource "helm_release" "eck_operator" {
+      + atomic                     = false
+      + chart                      = "eck-operator"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "elastic-operator"
+      + namespace                  = "elastic-system"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://helm.elastic.co"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 300
+      + verify                     = false
+      + version                    = "2.14.0"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # module.logging_platform.helm_release.external_dns will be created
+  + resource "helm_release" "external_dns" {
+      + atomic                     = false
+      + chart                      = "external-dns"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "external-dns"
+      + namespace                  = "external-dns"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubernetes-sigs.github.io/external-dns/"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 300
+      + values                     = [
+          + <<-EOT
+                "domainFilters":
+                - "dev.logging.qyonlimited.com"
+                "extraArgs":
+                - "--aws-zone-type=public"
+                "policy": "sync"
+                "provider":
+                  "name": "aws"
+                "serviceAccount":
+                  "create": true
+                  "name": "external-dns"
+                "txtOwnerId": "logging-eks-dev"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "1.21.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # module.logging_platform.helm_release.filebeat will be created
+  + resource "helm_release" "filebeat" {
+      + atomic                     = false
+      + chart                      = "filebeat"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "filebeat"
+      + namespace                  = "logging"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://helm.elastic.co"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 300
+      + values                     = [
+          + <<-EOT
+                "daemonset":
+                  "daemonsetConfig": |
+                    # ILM policy, index template, and the app-logs write alias are all
+                    # created explicitly by scripts/es-bootstrap-remote.sh — disable Filebeat's
+                    # own auto-setup so it doesn't also create a redundant default
+                    # "filebeat-*" ILM policy/template alongside the ones we actually use.
+                    setup.ilm.enabled: false
+                    setup.template.enabled: false
+                
+                    filebeat.autodiscover:
+                      providers:
+                        - type: kubernetes
+                          node: ${NODE_NAME}
+                          hints.enabled: true
+                          templates:
+                            # Only harvest logs from pods explicitly opted in via annotation
+                            # (co.elastic.logs/enabled: "true") to avoid ingesting noise from
+                            # system pods and driving up the daily log volume unnecessarily.
+                            - condition:
+                                equals:
+                                  kubernetes.annotations.co_elastic_logs/enabled: "true"
+                              config:
+                                - type: container
+                                  paths:
+                                    - "/var/log/containers/*${data.kubernetes.container.id}.log"
+                                  # Structured JSON logs (see app/app.py) are parsed directly —
+                                  # no grok/regex parsing needed since the app emits JSON.
+                                  json.keys_under_root: true
+                                  json.add_error_key: true
+                                  json.message_key: message
+                                  multiline.type: pattern
+                                  multiline.pattern: '^\{'
+                                  multiline.negate: true
+                                  multiline.match: after
+                                  multiline.max_lines: 50
+                                  multiline.timeout: 5s
+                
+                    processors:
+                      - add_kubernetes_metadata:
+                          host: ${NODE_NAME}
+                          matchers:
+                            - logs_path:
+                                logs_path: "/var/log/containers/"
+                      - drop_event:
+                          # Cut obvious health-check noise before it ever hits the network,
+                          # cheaper than filtering it out in Elasticsearch after ingestion.
+                          when:
+                            contains:
+                              http.path: "/health"
+                
+                    # Buffer/queue management: memory queue bounded to avoid unbounded RAM
+                    # growth if Elasticsearch is briefly unavailable; events spill to disk
+                    # only if the queue fills, rather than being dropped.
+                    queue.mem:
+                      events: 4096
+                      flush.min_events: 512
+                      flush.timeout: 5s
+                
+                    output.elasticsearch:
+                      hosts: ["${ELASTICSEARCH_HOSTS}"]
+                      username: "${ELASTICSEARCH_USERNAME}"
+                      password: "${ELASTICSEARCH_PASSWORD}"
+                      ssl.certificate_authorities: ["/usr/share/filebeat/certs/ca.crt"]
+                      index: "app-logs" # the rollover ALIAS, not a concrete index name — see scripts/es-bootstrap-remote.sh
+                      bulk_max_size: 200
+                      worker: 2
+                      max_retries: 3
+                      backoff.init: 1s
+                      backoff.max: 60s
+                
+                    logging.metrics.enabled: true
+                    monitoring.enabled: false
+                  "extraEnvs":
+                  - "name": "ELASTICSEARCH_HOSTS"
+                    "value": "https://logging-es-http.elastic-system.svc:9200"
+                  - "name": "ELASTICSEARCH_USERNAME"
+                    "valueFrom":
+                      "secretKeyRef":
+                        "key": "username"
+                        "name": "filebeat-es-credentials"
+                  - "name": "ELASTICSEARCH_PASSWORD"
+                    "valueFrom":
+                      "secretKeyRef":
+                        "key": "password"
+                        "name": "filebeat-es-credentials"
+                  "resources":
+                    "limits":
+                      "cpu": "500m"
+                      "memory": "300Mi"
+                    "requests":
+                      "cpu": "100m"
+                      "memory": "100Mi"
+                  "secretMounts":
+                  - "name": "es-ca-cert"
+                    "path": "/usr/share/filebeat/certs"
+                    "secretName": "logging-es-http-certs-public"
+                "tolerations":
+                - "effect": "NoExecute"
+                  "key": "node.kubernetes.io/not-ready"
+                  "operator": "Exists"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "8.15.0"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # module.logging_platform.helm_release.ingress_nginx will be created
+  + resource "helm_release" "ingress_nginx" {
+      + atomic                     = false
+      + chart                      = "ingress-nginx"
+      + cleanup_on_fail            = false
+      + create_namespace           = true
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "ingress-nginx"
+      + namespace                  = "ingress-nginx"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://kubernetes.github.io/ingress-nginx"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 300
+      + values                     = [
+          + <<-EOT
+                "controller":
+                  "service":
+                    "annotations":
+                      "service.beta.kubernetes.io/aws-load-balancer-nlb-target-type": "ip"
+                      "service.beta.kubernetes.io/aws-load-balancer-scheme": "internet-facing"
+                      "service.beta.kubernetes.io/aws-load-balancer-type": "external"
+                    "type": "LoadBalancer"
+            EOT,
+        ]
+      + verify                     = false
+      + version                    = "4.15.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # module.logging_platform.helm_release.vault will be created
+  + resource "helm_release" "vault" {
+      + atomic                     = false
+      + chart                      = "vault"
+      + cleanup_on_fail            = false
+      + create_namespace           = false
+      + dependency_update          = false
+      + disable_crd_hooks          = false
+      + disable_openapi_validation = false
+      + disable_webhooks           = false
+      + force_update               = false
+      + id                         = (known after apply)
+      + lint                       = false
+      + manifest                   = (known after apply)
+      + max_history                = 0
+      + metadata                   = (known after apply)
+      + name                       = "vault"
+      + namespace                  = "vault"
+      + pass_credentials           = false
+      + recreate_pods              = false
+      + render_subchart_notes      = true
+      + replace                    = false
+      + repository                 = "https://helm.releases.hashicorp.com"
+      + reset_values               = false
+      + reuse_values               = false
+      + skip_crds                  = false
+      + status                     = "deployed"
+      + timeout                    = 300
+      + values                     = (known after apply)
+      + verify                     = false
+      + version                    = "0.34.1"
+      + wait                       = true
+      + wait_for_jobs              = false
+    }
+
+  # module.logging_platform.kubectl_manifest.cluster_issuer will be created
+  + resource "kubectl_manifest" "cluster_issuer" {
+      + api_version             = "cert-manager.io/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "ClusterIssuer"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "letsencrypt-route53"
+      + namespace               = (known after apply)
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: cert-manager.io/v1
+            kind: ClusterIssuer
+            metadata:
+              name: letsencrypt-route53
+            spec:
+              acme:
+                email: devops@qyonlimited.com
+                privateKeySecretRef:
+                  name: letsencrypt-route53-key
+                server: https://acme-v02.api.letsencrypt.org/directory
+                solvers:
+                - dns01:
+                    route53:
+                      hostedZoneID: Z09019271I4E7S51C7UCE
+                      region: eu-west-2
+                  selector:
+                    dnsZones:
+                    - qyonlimited.com
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.elasticsearch will be created
+  + resource "kubectl_manifest" "elasticsearch" {
+      + api_version             = "elasticsearch.k8s.elastic.co/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "Elasticsearch"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "logging"
+      + namespace               = "elastic-system"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: elasticsearch.k8s.elastic.co/v1
+            kind: Elasticsearch
+            metadata:
+              name: logging
+              namespace: elastic-system
+            spec:
+              http:
+                tls:
+                  selfSignedCertificate:
+                    subjectAltNames:
+                    - dns: logging-es-http.elastic-system.svc
+                    - dns: logging-es-http.elastic-system.svc.cluster.local
+              nodeSets:
+              - config:
+                  node.roles:
+                  - master
+                  node.store.allow_mmap: false
+                count: 1
+                name: master
+                podTemplate:
+                  spec:
+                    affinity:
+                      podAntiAffinity:
+                        requiredDuringSchedulingIgnoredDuringExecution:
+                        - labelSelector:
+                            matchExpressions:
+                            - key: elasticsearch.k8s.elastic.co/statefulset-name
+                              operator: In
+                              values:
+                              - logging-es-master
+                          topologyKey: topology.kubernetes.io/zone
+                    containers:
+                    - env:
+                      - name: ES_JAVA_OPTS
+                        value: -Xms512m -Xmx512m
+                      name: elasticsearch
+                      resources:
+                        limits:
+                          cpu: "1"
+                          memory: 1Gi
+                        requests:
+                          cpu: 500m
+                          memory: 1Gi
+                    nodeSelector:
+                      role: es-master
+                    tolerations:
+                    - effect: NoSchedule
+                      key: dedicated
+                      operator: Equal
+                      value: es-master
+                volumeClaimTemplates:
+                - metadata:
+                    name: elasticsearch-data
+                  spec:
+                    accessModes:
+                    - ReadWriteOnce
+                    resources:
+                      requests:
+                        storage: 10Gi
+                    storageClassName: es-gp3
+              - config:
+                  node.roles:
+                  - data
+                  - ingest
+                  node.store.allow_mmap: false
+                count: 1
+                name: data
+                podTemplate:
+                  spec:
+                    affinity:
+                      podAntiAffinity:
+                        requiredDuringSchedulingIgnoredDuringExecution:
+                        - labelSelector:
+                            matchExpressions:
+                            - key: elasticsearch.k8s.elastic.co/statefulset-name
+                              operator: In
+                              values:
+                              - logging-es-data
+                          topologyKey: topology.kubernetes.io/zone
+                    containers:
+                    - env:
+                      - name: ES_JAVA_OPTS
+                        value: -Xms1g -Xmx1g
+                      name: elasticsearch
+                      resources:
+                        limits:
+                          cpu: "2"
+                          memory: 2Gi
+                        requests:
+                          cpu: "1"
+                          memory: 2Gi
+                    initContainers:
+                    - command:
+                      - sh
+                      - -c
+                      - sysctl -w vm.max_map_count=262144
+                      name: sysctl
+                      securityContext:
+                        privileged: true
+                        runAsUser: 0
+                    nodeSelector:
+                      role: es-data
+                    tolerations:
+                    - effect: NoSchedule
+                      key: dedicated
+                      operator: Equal
+                      value: es-data
+                volumeClaimTemplates:
+                - metadata:
+                    name: elasticsearch-data
+                  spec:
+                    accessModes:
+                    - ReadWriteOnce
+                    resources:
+                      requests:
+                        storage: 50Gi
+                    storageClassName: es-gp3
+              secureSettings:
+              - secretName: es-snapshot-credentials
+              version: 8.15.0
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.kibana will be created
+  + resource "kubectl_manifest" "kibana" {
+      + api_version             = "kibana.k8s.elastic.co/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "Kibana"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "logging"
+      + namespace               = "elastic-system"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: kibana.k8s.elastic.co/v1
+            kind: Kibana
+            metadata:
+              name: logging
+              namespace: elastic-system
+            spec:
+              config:
+                server.publicBaseUrl: https://kibana.dev.logging.qyonlimited.com
+                xpack.security.session.idleTimeout: 1h
+                xpack.security.session.lifespan: 24h
+              count: 1
+              elasticsearchRef:
+                name: logging
+              http:
+                tls:
+                  selfSignedCertificate:
+                    subjectAltNames:
+                    - dns: kibana.dev.logging.qyonlimited.com
+              podTemplate:
+                spec:
+                  affinity:
+                    podAntiAffinity:
+                      preferredDuringSchedulingIgnoredDuringExecution:
+                      - podAffinityTerm:
+                          labelSelector:
+                            matchExpressions:
+                            - key: kibana.k8s.elastic.co/name
+                              operator: In
+                              values:
+                              - logging
+                          topologyKey: kubernetes.io/hostname
+                        weight: 100
+                  containers:
+                  - name: kibana
+                    resources:
+                      limits:
+                        cpu: 500m
+                        memory: 1Gi
+                      requests:
+                        cpu: 200m
+                        memory: 512Mi
+                  nodeSelector:
+                    role: general
+              version: 8.15.0
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.netpol_applications_deny will be created
+  + resource "kubectl_manifest" "netpol_applications_deny" {
+      + api_version             = "networking.k8s.io/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "NetworkPolicy"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "default-deny-all"
+      + namespace               = "applications"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: networking.k8s.io/v1
+            kind: NetworkPolicy
+            metadata:
+              name: default-deny-all
+              namespace: applications
+            spec:
+              podSelector: {}
+              policyTypes:
+              - Ingress
+              - Egress
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.netpol_elastic_system_deny will be created
+  + resource "kubectl_manifest" "netpol_elastic_system_deny" {
+      + api_version             = "networking.k8s.io/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "NetworkPolicy"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "default-deny-all"
+      + namespace               = "elastic-system"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: networking.k8s.io/v1
+            kind: NetworkPolicy
+            metadata:
+              name: default-deny-all
+              namespace: elastic-system
+            spec:
+              podSelector: {}
+              policyTypes:
+              - Ingress
+              - Egress
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.netpol_es_allow will be created
+  + resource "kubectl_manifest" "netpol_es_allow" {
+      + api_version             = "networking.k8s.io/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "NetworkPolicy"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "es-allow-internal-and-kibana-and-filebeat"
+      + namespace               = "elastic-system"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: networking.k8s.io/v1
+            kind: NetworkPolicy
+            metadata:
+              name: es-allow-internal-and-kibana-and-filebeat
+              namespace: elastic-system
+            spec:
+              egress:
+              - ports:
+                - port: 9300
+                  protocol: TCP
+                to:
+                - podSelector:
+                    matchLabels:
+                      elasticsearch.k8s.elastic.co/cluster-name: logging
+              - ports:
+                - port: 53
+                  protocol: UDP
+                to: []
+              - ports:
+                - port: 443
+                  protocol: TCP
+                to: []
+              ingress:
+              - from:
+                - podSelector:
+                    matchLabels:
+                      elasticsearch.k8s.elastic.co/cluster-name: logging
+                - podSelector:
+                    matchLabels:
+                      kibana.k8s.elastic.co/name: logging
+                - namespaceSelector:
+                    matchLabels:
+                      name: logging
+                ports:
+                - port: 9200
+                  protocol: TCP
+                - port: 9300
+                  protocol: TCP
+              podSelector:
+                matchLabels:
+                  elasticsearch.k8s.elastic.co/cluster-name: logging
+              policyTypes:
+              - Ingress
+              - Egress
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.netpol_filebeat_egress will be created
+  + resource "kubectl_manifest" "netpol_filebeat_egress" {
+      + api_version             = "networking.k8s.io/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "NetworkPolicy"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "filebeat-egress-to-es-and-k8s-api"
+      + namespace               = "logging"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: networking.k8s.io/v1
+            kind: NetworkPolicy
+            metadata:
+              name: filebeat-egress-to-es-and-k8s-api
+              namespace: logging
+            spec:
+              egress:
+              - ports:
+                - port: 9200
+                  protocol: TCP
+                to:
+                - namespaceSelector:
+                    matchLabels:
+                      name: elastic-system
+              - ports:
+                - port: 443
+                  protocol: TCP
+                - port: 53
+                  protocol: UDP
+                to: []
+              podSelector:
+                matchLabels:
+                  app.kubernetes.io/name: filebeat
+              policyTypes:
+              - Egress
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.netpol_kibana_allow will be created
+  + resource "kubectl_manifest" "netpol_kibana_allow" {
+      + api_version             = "networking.k8s.io/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "NetworkPolicy"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "kibana-allow-ingress-and-es-egress"
+      + namespace               = "elastic-system"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: networking.k8s.io/v1
+            kind: NetworkPolicy
+            metadata:
+              name: kibana-allow-ingress-and-es-egress
+              namespace: elastic-system
+            spec:
+              egress:
+              - ports:
+                - port: 9200
+                  protocol: TCP
+                to:
+                - podSelector:
+                    matchLabels:
+                      elasticsearch.k8s.elastic.co/cluster-name: logging
+              - ports:
+                - port: 53
+                  protocol: UDP
+                to: []
+              ingress:
+              - from:
+                - namespaceSelector:
+                    matchLabels:
+                      kubernetes.io/metadata.name: ingress-nginx
+                ports:
+                - port: 5601
+                  protocol: TCP
+              podSelector:
+                matchLabels:
+                  kibana.k8s.elastic.co/name: logging
+              policyTypes:
+              - Ingress
+              - Egress
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.netpol_logging_deny will be created
+  + resource "kubectl_manifest" "netpol_logging_deny" {
+      + api_version             = "networking.k8s.io/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "NetworkPolicy"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "default-deny-all"
+      + namespace               = "logging"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: networking.k8s.io/v1
+            kind: NetworkPolicy
+            metadata:
+              name: default-deny-all
+              namespace: logging
+            spec:
+              podSelector: {}
+              policyTypes:
+              - Ingress
+              - Egress
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.netpol_order_api_allow will be created
+  + resource "kubectl_manifest" "netpol_order_api_allow" {
+      + api_version             = "networking.k8s.io/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "NetworkPolicy"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "order-api-allow-ingress-and-vault"
+      + namespace               = "applications"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: networking.k8s.io/v1
+            kind: NetworkPolicy
+            metadata:
+              name: order-api-allow-ingress-and-vault
+              namespace: applications
+            spec:
+              egress:
+              - ports:
+                - port: 8200
+                  protocol: TCP
+                to:
+                - namespaceSelector:
+                    matchLabels:
+                      name: vault
+              - ports:
+                - port: 53
+                  protocol: UDP
+                - port: 443
+                  protocol: TCP
+                to: []
+              ingress:
+              - from:
+                - namespaceSelector:
+                    matchLabels:
+                      kubernetes.io/metadata.name: ingress-nginx
+                ports:
+                - port: 8080
+                  protocol: TCP
+              - from:
+                - namespaceSelector:
+                    matchLabels:
+                      name: monitoring
+                ports:
+                - port: 8080
+                  protocol: TCP
+              podSelector:
+                matchLabels:
+                  app: order-api
+              policyTypes:
+              - Ingress
+              - Egress
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.netpol_vault_allow will be created
+  + resource "kubectl_manifest" "netpol_vault_allow" {
+      + api_version             = "networking.k8s.io/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "NetworkPolicy"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "vault-allow-ingress-and-kms-egress"
+      + namespace               = "vault"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: networking.k8s.io/v1
+            kind: NetworkPolicy
+            metadata:
+              name: vault-allow-ingress-and-kms-egress
+              namespace: vault
+            spec:
+              egress:
+              - ports:
+                - port: 8200
+                  protocol: TCP
+                - port: 8201
+                  protocol: TCP
+                to:
+                - podSelector: {}
+              - ports:
+                - port: 53
+                  protocol: UDP
+                - port: 443
+                  protocol: TCP
+                to: []
+              ingress:
+              - from:
+                - namespaceSelector:
+                    matchLabels:
+                      name: applications
+                - podSelector: {}
+                ports:
+                - port: 8200
+                  protocol: TCP
+                - port: 8201
+                  protocol: TCP
+              podSelector: {}
+              policyTypes:
+              - Ingress
+              - Egress
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubectl_manifest.netpol_vault_deny will be created
+  + resource "kubectl_manifest" "netpol_vault_deny" {
+      + api_version             = "networking.k8s.io/v1"
+      + apply_only              = false
+      + field_manager           = "kubectl"
+      + force_conflicts         = false
+      + force_new               = false
+      + id                      = (known after apply)
+      + kind                    = "NetworkPolicy"
+      + live_manifest_incluster = (sensitive value)
+      + live_uid                = (known after apply)
+      + name                    = "default-deny-all"
+      + namespace               = "vault"
+      + server_side_apply       = false
+      + uid                     = (known after apply)
+      + upgrade_api_version     = false
+      + validate_schema         = true
+      + wait_for_rollout        = true
+      + yaml_body               = (sensitive value)
+      + yaml_body_parsed        = <<-EOT
+            apiVersion: networking.k8s.io/v1
+            kind: NetworkPolicy
+            metadata:
+              name: default-deny-all
+              namespace: vault
+            spec:
+              podSelector: {}
+              policyTypes:
+              - Ingress
+              - Egress
+        EOT
+      + yaml_incluster          = (sensitive value)
+    }
+
+  # module.logging_platform.kubernetes_deployment_v1.order_api will be created
+  + resource "kubernetes_deployment_v1" "order_api" {
+      + id               = (known after apply)
+      + wait_for_rollout = true
+
+      + metadata {
+          + generation       = (known after apply)
+          + name             = "order-api"
+          + namespace        = "applications"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+
+      + spec {
+          + min_ready_seconds         = 0
+          + paused                    = false
+          + progress_deadline_seconds = 600
+          + replicas                  = "1"
+          + revision_history_limit    = 10
+
+          + selector {
+              + match_labels = {
+                  + "app" = "order-api"
+                }
+            }
+
+          + strategy (known after apply)
+
+          + template {
+              + metadata {
+                  + annotations      = {
+                      + "co.elastic.logs/enabled"                              = "true"
+                      + "vault.hashicorp.com/agent-inject"                     = "true"
+                      + "vault.hashicorp.com/agent-inject-secret-config.env"   = "secret/data/logging-eks-dev/order-api"
+                      + "vault.hashicorp.com/agent-inject-template-config.env" = <<-EOT
+                            {{- with secret "secret/data/logging-eks-dev/order-api" -}}
+                            DB_PASSWORD={{ .Data.data.db_password }}
+                            EXTERNAL_API_KEY={{ .Data.data.external_api_key }}
+                            {{- end -}}
+                        EOT
+                      + "vault.hashicorp.com/auth-path"                        = "auth/kubernetes-dev"
+                      + "vault.hashicorp.com/role"                             = "order-api"
+                    }
+                  + generation       = (known after apply)
+                  + labels           = {
+                      + "app" = "order-api"
+                    }
+                  + name             = (known after apply)
+                  + resource_version = (known after apply)
+                  + uid              = (known after apply)
+                }
+              + spec {
+                  + automount_service_account_token  = true
+                  + dns_policy                       = "ClusterFirst"
+                  + enable_service_links             = true
+                  + host_ipc                         = false
+                  + host_network                     = false
+                  + host_pid                         = false
+                  + hostname                         = (known after apply)
+                  + node_name                        = (known after apply)
+                  + node_selector                    = {
+                      + "role" = "general"
+                    }
+                  + restart_policy                   = "Always"
+                  + scheduler_name                   = (known after apply)
+                  + service_account_name             = "order-api"
+                  + share_process_namespace          = false
+                  + termination_grace_period_seconds = 30
+
+                  + container {
+                      + image                      = (known after apply)
+                      + image_pull_policy          = (known after apply)
+                      + name                       = "order-api"
+                      + stdin                      = false
+                      + stdin_once                 = false
+                      + termination_message_path   = "/dev/termination-log"
+                      + termination_message_policy = (known after apply)
+                      + tty                        = false
+
+                      + env {
+                          + name  = "ENVIRONMENT"
+                          + value = "dev"
+                        }
+                      + env {
+                          + name  = "LOG_LEVEL"
+                          + value = "DEBUG"
+                        }
+
+                      + liveness_probe {
+                          + failure_threshold     = 3
+                          + initial_delay_seconds = 10
+                          + period_seconds        = 20
+                          + success_threshold     = 1
+                          + timeout_seconds       = 1
+
+                          + http_get {
+                              + path   = "/health"
+                              + port   = "8080"
+                              + scheme = "HTTP"
+                            }
+                        }
+
+                      + port {
+                          + container_port = 8080
+                          + name           = "http"
+                          + protocol       = "TCP"
+                        }
+
+                      + readiness_probe {
+                          + failure_threshold     = 3
+                          + initial_delay_seconds = 5
+                          + period_seconds        = 10
+                          + success_threshold     = 1
+                          + timeout_seconds       = 1
+
+                          + http_get {
+                              + path   = "/health"
+                              + port   = "8080"
+                              + scheme = "HTTP"
+                            }
+                        }
+
+                      + resources {
+                          + limits   = {
+                              + "cpu"    = "200m"
+                              + "memory" = "192Mi"
+                            }
+                          + requests = {
+                              + "cpu"    = "50m"
+                              + "memory" = "96Mi"
+                            }
+                        }
+
+                      + security_context {
+                          + allow_privilege_escalation = false
+                          + privileged                 = false
+                          + read_only_root_filesystem  = true
+
+                          + capabilities {
+                              + drop = [
+                                  + "ALL",
+                                ]
+                            }
+                        }
+
+                      + volume_mount {
+                          + mount_path        = "/tmp"
+                          + mount_propagation = "None"
+                          + name              = "tmp"
+                          + read_only         = false
+                        }
+                    }
+
+                  + image_pull_secrets (known after apply)
+
+                  + readiness_gate (known after apply)
+
+                  + security_context {
+                      + run_as_non_root = true
+                      + run_as_user     = "10001"
+
+                      + seccomp_profile {
+                          + type = "RuntimeDefault"
+                        }
+                    }
+
+                  + volume {
+                      + name = "tmp"
+
+                      + empty_dir {}
+                    }
+                }
+            }
+        }
+    }
+
+  # module.logging_platform.kubernetes_ingress_v1.kibana will be created
+  + resource "kubernetes_ingress_v1" "kibana" {
+      + id     = (known after apply)
+      + status = (known after apply)
+
+      + metadata {
+          + annotations      = {
+              + "cert-manager.io/cluster-issuer"               = "letsencrypt-route53"
+              + "nginx.ingress.kubernetes.io/backend-protocol" = "HTTPS"
+              + "nginx.ingress.kubernetes.io/proxy-body-size"  = "10m"
+              + "nginx.ingress.kubernetes.io/ssl-passthrough"  = "false"
+            }
+          + generation       = (known after apply)
+          + name             = "kibana"
+          + namespace        = "elastic-system"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+
+      + spec {
+          + ingress_class_name = "nginx"
+
+          + rule {
+              + host = "kibana.dev.logging.qyonlimited.com"
+
+              + http {
+                  + path {
+                      + path      = "/"
+                      + path_type = "Prefix"
+
+                      + backend {
+                          + service {
+                              + name = "logging-kb-http"
+
+                              + port {
+                                  + number = 5601
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+          + tls {
+              + hosts       = [
+                  + "kibana.dev.logging.qyonlimited.com",
+                ]
+              + secret_name = "kibana-ingress-tls"
+            }
+        }
+    }
+
+  # module.logging_platform.kubernetes_ingress_v1.order_api will be created
+  + resource "kubernetes_ingress_v1" "order_api" {
+      + id     = (known after apply)
+      + status = (known after apply)
+
+      + metadata {
+          + annotations      = {
+              + "cert-manager.io/cluster-issuer"              = "letsencrypt-route53"
+              + "nginx.ingress.kubernetes.io/proxy-body-size" = "1m"
+            }
+          + generation       = (known after apply)
+          + name             = "order-api"
+          + namespace        = "applications"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+
+      + spec {
+          + ingress_class_name = "nginx"
+
+          + rule {
+              + host = "order-api.dev.logging.qyonlimited.com"
+
+              + http {
+                  + path {
+                      + path      = "/"
+                      + path_type = "Prefix"
+
+                      + backend {
+                          + service {
+                              + name = "order-api"
+
+                              + port {
+                                  + number = 8080
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+          + tls {
+              + hosts       = [
+                  + "order-api.dev.logging.qyonlimited.com",
+                ]
+              + secret_name = "order-api-ingress-tls"
+            }
+        }
+    }
+
+  # module.logging_platform.kubernetes_namespace_v1.applications will be created
+  + resource "kubernetes_namespace_v1" "applications" {
+      + id                               = (known after apply)
+      + wait_for_default_service_account = false
+
+      + metadata {
+          + generation       = (known after apply)
+          + labels           = {
+              + "name"                               = "applications"
+              + "pod-security.kubernetes.io/enforce" = "restricted"
+            }
+          + name             = "applications"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.kubernetes_namespace_v1.elastic_system will be created
+  + resource "kubernetes_namespace_v1" "elastic_system" {
+      + id                               = (known after apply)
+      + wait_for_default_service_account = false
+
+      + metadata {
+          + generation       = (known after apply)
+          + labels           = {
+              + "name"                               = "elastic-system"
+              + "pod-security.kubernetes.io/audit"   = "restricted"
+              + "pod-security.kubernetes.io/enforce" = "baseline"
+            }
+          + name             = "elastic-system"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.kubernetes_namespace_v1.logging will be created
+  + resource "kubernetes_namespace_v1" "logging" {
+      + id                               = (known after apply)
+      + wait_for_default_service_account = false
+
+      + metadata {
+          + generation       = (known after apply)
+          + labels           = {
+              + "name"                               = "logging"
+              + "pod-security.kubernetes.io/enforce" = "restricted"
+            }
+          + name             = "logging"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.kubernetes_namespace_v1.monitoring will be created
+  + resource "kubernetes_namespace_v1" "monitoring" {
+      + id                               = (known after apply)
+      + wait_for_default_service_account = false
+
+      + metadata {
+          + generation       = (known after apply)
+          + labels           = {
+              + "name"                               = "monitoring"
+              + "pod-security.kubernetes.io/enforce" = "restricted"
+            }
+          + name             = "monitoring"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.kubernetes_namespace_v1.vault will be created
+  + resource "kubernetes_namespace_v1" "vault" {
+      + id                               = (known after apply)
+      + wait_for_default_service_account = false
+
+      + metadata {
+          + generation       = (known after apply)
+          + labels           = {
+              + "name"                               = "vault"
+              + "pod-security.kubernetes.io/enforce" = "baseline"
+            }
+          + name             = "vault"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.kubernetes_secret_v1.es_snapshot_credentials will be created
+  + resource "kubernetes_secret_v1" "es_snapshot_credentials" {
+      + binary_data_wo                 = (write-only attribute)
+      + data                           = (sensitive value)
+      + data_wo                        = (write-only attribute)
+      + id                             = (known after apply)
+      + type                           = "Opaque"
+      + wait_for_service_account_token = true
+
+      + metadata {
+          + generation       = (known after apply)
+          + name             = "es-snapshot-credentials"
+          + namespace        = "elastic-system"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.kubernetes_secret_v1.filebeat_es_ca will be created
+  + resource "kubernetes_secret_v1" "filebeat_es_ca" {
+      + binary_data_wo                 = (write-only attribute)
+      + data                           = (sensitive value)
+      + data_wo                        = (write-only attribute)
+      + id                             = (known after apply)
+      + type                           = "Opaque"
+      + wait_for_service_account_token = true
+
+      + metadata {
+          + generation       = (known after apply)
+          + name             = "logging-es-http-certs-public"
+          + namespace        = "logging"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.kubernetes_secret_v1.filebeat_es_credentials will be created
+  + resource "kubernetes_secret_v1" "filebeat_es_credentials" {
+      + binary_data_wo                 = (write-only attribute)
+      + data                           = (sensitive value)
+      + data_wo                        = (write-only attribute)
+      + id                             = (known after apply)
+      + type                           = "Opaque"
+      + wait_for_service_account_token = true
+
+      + metadata {
+          + generation       = (known after apply)
+          + name             = "filebeat-es-credentials"
+          + namespace        = "logging"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.kubernetes_service_account_v1.order_api will be created
+  + resource "kubernetes_service_account_v1" "order_api" {
+      + automount_service_account_token = true
+      + default_secret_name             = (known after apply)
+      + id                              = (known after apply)
+
+      + metadata {
+          + generation       = (known after apply)
+          + name             = "order-api"
+          + namespace        = "applications"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.kubernetes_service_v1.order_api will be created
+  + resource "kubernetes_service_v1" "order_api" {
+      + id                     = (known after apply)
+      + status                 = (known after apply)
+      + wait_for_load_balancer = true
+
+      + metadata {
+          + generation       = (known after apply)
+          + name             = "order-api"
+          + namespace        = "applications"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+
+      + spec {
+          + allocate_load_balancer_node_ports = true
+          + cluster_ip                        = (known after apply)
+          + cluster_ips                       = (known after apply)
+          + external_traffic_policy           = (known after apply)
+          + health_check_node_port            = (known after apply)
+          + internal_traffic_policy           = (known after apply)
+          + ip_families                       = (known after apply)
+          + ip_family_policy                  = (known after apply)
+          + publish_not_ready_addresses       = false
+          + selector                          = {
+              + "app" = "order-api"
+            }
+          + session_affinity                  = "None"
+          + type                              = "ClusterIP"
+
+          + port {
+              + name        = "http"
+              + node_port   = (known after apply)
+              + port        = 8080
+              + protocol    = "TCP"
+              + target_port = "http"
+            }
+
+          + session_affinity_config (known after apply)
+        }
+    }
+
+  # module.logging_platform.kubernetes_storage_class_v1.es_gp3 will be created
+  + resource "kubernetes_storage_class_v1" "es_gp3" {
+      + allow_volume_expansion = true
+      + id                     = (known after apply)
+      + parameters             = {
+          + "encrypted" = "true"
+          + "type"      = "gp3"
+        }
+      + reclaim_policy         = "Retain"
+      + storage_provisioner    = "ebs.csi.aws.com"
+      + volume_binding_mode    = "WaitForFirstConsumer"
+
+      + metadata {
+          + generation       = (known after apply)
+          + name             = "es-gp3"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.logging_platform.null_resource.es_bootstrap will be created
+  + resource "null_resource" "es_bootstrap" {
+      + id       = (known after apply)
+      + triggers = {
+          + "es_manifest_id" = (known after apply)
+        }
+    }
+
+  # module.logging_platform.null_resource.vault_bootstrap will be created
+  + resource "null_resource" "vault_bootstrap" {
+      + id       = (known after apply)
+      + triggers = {
+          + "vault_release_id" = (known after apply)
+        }
+    }
+
+  # module.logging_platform.null_resource.wait_for_elasticsearch will be created
+  + resource "null_resource" "wait_for_elasticsearch" {
+      + id       = (known after apply)
+      + triggers = {
+          + "es_manifest_id" = (known after apply)
+        }
+    }
+
+  # module.logging_platform.module.eks.aws_eks_addon.this["aws-ebs-csi-driver"] will be created
+  + resource "aws_eks_addon" "this" {
+      + addon_name                  = "aws-ebs-csi-driver"
+      + addon_version               = "v1.65.0-eksbuild.1"
+      + arn                         = (known after apply)
+      + cluster_name                = "logging-eks-dev"
+      + configuration_values        = (known after apply)
+      + created_at                  = (known after apply)
+      + id                          = (known after apply)
+      + modified_at                 = (known after apply)
+      + preserve                    = true
+      + resolve_conflicts_on_create = "OVERWRITE"
+      + resolve_conflicts_on_update = "OVERWRITE"
+      + tags                        = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + tags_all                    = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+
+      + timeouts {}
+    }
+
+  # module.logging_platform.module.eks.aws_eks_addon.this["coredns"] will be created
+  + resource "aws_eks_addon" "this" {
+      + addon_name                  = "coredns"
+      + addon_version               = "v1.13.2-eksbuild.24"
+      + arn                         = (known after apply)
+      + cluster_name                = "logging-eks-dev"
+      + configuration_values        = (known after apply)
+      + created_at                  = (known after apply)
+      + id                          = (known after apply)
+      + modified_at                 = (known after apply)
+      + preserve                    = true
+      + resolve_conflicts_on_create = "OVERWRITE"
+      + resolve_conflicts_on_update = "OVERWRITE"
+      + tags                        = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + tags_all                    = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+
+      + timeouts {}
+    }
+
+  # module.logging_platform.module.eks.aws_eks_addon.this["eks-pod-identity-agent"] will be created
+  + resource "aws_eks_addon" "this" {
+      + addon_name                  = "eks-pod-identity-agent"
+      + addon_version               = "v1.4.0-eksbuild.2"
+      + arn                         = (known after apply)
+      + cluster_name                = "logging-eks-dev"
+      + configuration_values        = (known after apply)
+      + created_at                  = (known after apply)
+      + id                          = (known after apply)
+      + modified_at                 = (known after apply)
+      + preserve                    = true
+      + resolve_conflicts_on_create = "OVERWRITE"
+      + resolve_conflicts_on_update = "OVERWRITE"
+      + tags                        = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + tags_all                    = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+
+      + timeouts {}
+    }
+
+  # module.logging_platform.module.eks.aws_eks_addon.this["kube-proxy"] will be created
+  + resource "aws_eks_addon" "this" {
+      + addon_name                  = "kube-proxy"
+      + addon_version               = "v1.34.6-eksbuild.21"
+      + arn                         = (known after apply)
+      + cluster_name                = "logging-eks-dev"
+      + configuration_values        = (known after apply)
+      + created_at                  = (known after apply)
+      + id                          = (known after apply)
+      + modified_at                 = (known after apply)
+      + preserve                    = true
+      + resolve_conflicts_on_create = "OVERWRITE"
+      + resolve_conflicts_on_update = "OVERWRITE"
+      + tags                        = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + tags_all                    = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+
+      + timeouts {}
+    }
+
+  # module.logging_platform.module.eks.aws_eks_addon.this["vpc-cni"] will be created
+  + resource "aws_eks_addon" "this" {
+      + addon_name                  = "vpc-cni"
+      + addon_version               = "v1.23.0-eksbuild.1"
+      + arn                         = (known after apply)
+      + cluster_name                = "logging-eks-dev"
+      + configuration_values        = (known after apply)
+      + created_at                  = (known after apply)
+      + id                          = (known after apply)
+      + modified_at                 = (known after apply)
+      + preserve                    = true
+      + resolve_conflicts_on_create = "OVERWRITE"
+      + resolve_conflicts_on_update = "OVERWRITE"
+      + tags                        = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + tags_all                    = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+
+      + timeouts {}
+    }
+
+  # module.logging_platform.module.vpc.aws_default_network_acl.this[0] will be created
+  + resource "aws_default_network_acl" "this" {
+      + arn                    = (known after apply)
+      + default_network_acl_id = "acl-09863735b9ddb48fd"
+      + id                     = (known after apply)
+      + owner_id               = (known after apply)
+      + tags                   = {
+          + "Name" = "logging-eks-dev-vpc-default"
+        }
+      + tags_all               = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "logging-eks-dev-vpc-default"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + vpc_id                 = (known after apply)
+
+      + egress {
+          + action          = "allow"
+          + from_port       = 0
+          + ipv6_cidr_block = "::/0"
+          + protocol        = "-1"
+          + rule_no         = 101
+          + to_port         = 0
+            # (1 unchanged attribute hidden)
+        }
+      + egress {
+          + action          = "allow"
+          + cidr_block      = "0.0.0.0/0"
+          + from_port       = 0
+          + protocol        = "-1"
+          + rule_no         = 100
+          + to_port         = 0
+            # (1 unchanged attribute hidden)
+        }
+
+      + ingress {
+          + action          = "allow"
+          + from_port       = 0
+          + ipv6_cidr_block = "::/0"
+          + protocol        = "-1"
+          + rule_no         = 101
+          + to_port         = 0
+            # (1 unchanged attribute hidden)
+        }
+      + ingress {
+          + action          = "allow"
+          + cidr_block      = "0.0.0.0/0"
+          + from_port       = 0
+          + protocol        = "-1"
+          + rule_no         = 100
+          + to_port         = 0
+            # (1 unchanged attribute hidden)
+        }
+    }
+
+  # module.logging_platform.module.vpc.aws_default_route_table.default[0] will be created
+  + resource "aws_default_route_table" "default" {
+      + arn                    = (known after apply)
+      + default_route_table_id = "rtb-020bdf354aedada8f"
+      + id                     = (known after apply)
+      + owner_id               = (known after apply)
+      + route                  = (known after apply)
+      + tags                   = {
+          + "Name" = "logging-eks-dev-vpc-default"
+        }
+      + tags_all               = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "logging-eks-dev-vpc-default"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + vpc_id                 = (known after apply)
+
+      + timeouts {
+          + create = "5m"
+          + update = "5m"
+        }
+    }
+
+  # module.logging_platform.module.vpc.aws_default_security_group.this[0] will be created
+  + resource "aws_default_security_group" "this" {
+      + arn                    = (known after apply)
+      + description            = (known after apply)
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = (known after apply)
+      + name                   = (known after apply)
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "logging-eks-dev-vpc-default"
+        }
+      + tags_all               = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "logging-eks-dev-vpc-default"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + vpc_id                 = "vpc-035fa38c60898493c"
+    }
+
+  # module.logging_platform.module.vpc.aws_eip.nat[0] will be created
+  + resource "aws_eip" "nat" {
+      + allocation_id        = (known after apply)
+      + arn                  = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = "vpc"
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + ipam_pool_id         = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + ptr_record           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags                 = {
+          + "Name" = "logging-eks-dev-vpc-eu-west-2a"
+        }
+      + tags_all             = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "logging-eks-dev-vpc-eu-west-2a"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + vpc                  = (known after apply)
+    }
+
+  # module.logging_platform.module.vpc.aws_internet_gateway.this[0] will be created
+  + resource "aws_internet_gateway" "this" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags     = {
+          + "Name" = "logging-eks-dev-vpc"
+        }
+      + tags_all = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "logging-eks-dev-vpc"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + vpc_id   = "vpc-035fa38c60898493c"
+    }
+
+  # module.logging_platform.module.vpc.aws_nat_gateway.this[0] will be created
+  + resource "aws_nat_gateway" "this" {
+      + allocation_id                      = (known after apply)
+      + association_id                     = (known after apply)
+      + connectivity_type                  = "public"
+      + id                                 = (known after apply)
+      + network_interface_id               = (known after apply)
+      + private_ip                         = (known after apply)
+      + public_ip                          = (known after apply)
+      + secondary_private_ip_address_count = (known after apply)
+      + secondary_private_ip_addresses     = (known after apply)
+      + subnet_id                          = (known after apply)
+      + tags                               = {
+          + "Name" = "logging-eks-dev-vpc-eu-west-2a"
+        }
+      + tags_all                           = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "logging-eks-dev-vpc-eu-west-2a"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+    }
+
+  # module.logging_platform.module.vpc.aws_route.private_nat_gateway[0] will be created
+  + resource "aws_route" "private_nat_gateway" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + nat_gateway_id         = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = (known after apply)
+      + state                  = (known after apply)
+
+      + timeouts {
+          + create = "5m"
+        }
+    }
+
+  # module.logging_platform.module.vpc.aws_route.public_internet_gateway[0] will be created
+  + resource "aws_route" "public_internet_gateway" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + gateway_id             = (known after apply)
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = (known after apply)
+      + state                  = (known after apply)
+
+      + timeouts {
+          + create = "5m"
+        }
+    }
+
+  # module.logging_platform.module.vpc.aws_route_table.private[0] will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Name" = "logging-eks-dev-vpc-private"
+        }
+      + tags_all         = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "logging-eks-dev-vpc-private"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + vpc_id           = "vpc-035fa38c60898493c"
+    }
+
+  # module.logging_platform.module.vpc.aws_route_table.public[0] will be created
+  + resource "aws_route_table" "public" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Name" = "logging-eks-dev-vpc-public"
+        }
+      + tags_all         = {
+          + "Environment" = "dev"
+          + "ManagedBy"   = "terraform"
+          + "Name"        = "logging-eks-dev-vpc-public"
+          + "Owner"       = "Qyon Limited"
+          + "Project"     = "enterprise-k8s-logging"
+        }
+      + vpc_id           = "vpc-035fa38c60898493c"
+    }
+
+  # module.logging_platform.module.vpc.aws_route_table_association.private[0] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = "subnet-0a0b596ae06102537"
+    }
+
+  # module.logging_platform.module.vpc.aws_route_table_association.private[1] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = "subnet-0cfb88650bdd81b49"
+    }
+
+  # module.logging_platform.module.vpc.aws_route_table_association.private[2] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = "subnet-06488299b065c78dd"
+    }
+
+  # module.logging_platform.module.vpc.aws_route_table_association.public[0] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.logging_platform.module.vpc.aws_route_table_association.public[1] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.logging_platform.module.vpc.aws_route_table_association.public[2] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.logging_platform.module.vpc.aws_subnet.public[0] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "eu-west-2a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.21.128.0/20"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name"                                  = "logging-eks-dev-vpc-public-eu-west-2a"
+          + "kubernetes.io/cluster/logging-eks-dev" = "shared"
+          + "kubernetes.io/role/elb"                = "1"
+        }
+      + tags_all                                       = {
+          + "Environment"                           = "dev"
+          + "ManagedBy"                             = "terraform"
+          + "Name"                                  = "logging-eks-dev-vpc-public-eu-west-2a"
+          + "Owner"                                 = "Qyon Limited"
+          + "Project"                               = "enterprise-k8s-logging"
+          + "kubernetes.io/cluster/logging-eks-dev" = "shared"
+          + "kubernetes.io/role/elb"                = "1"
+        }
+      + vpc_id                                         = "vpc-035fa38c60898493c"
+    }
+
+  # module.logging_platform.module.vpc.aws_subnet.public[1] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "eu-west-2b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.21.144.0/20"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name"                                  = "logging-eks-dev-vpc-public-eu-west-2b"
+          + "kubernetes.io/cluster/logging-eks-dev" = "shared"
+          + "kubernetes.io/role/elb"                = "1"
+        }
+      + tags_all                                       = {
+          + "Environment"                           = "dev"
+          + "ManagedBy"                             = "terraform"
+          + "Name"                                  = "logging-eks-dev-vpc-public-eu-west-2b"
+          + "Owner"                                 = "Qyon Limited"
+          + "Project"                               = "enterprise-k8s-logging"
+          + "kubernetes.io/cluster/logging-eks-dev" = "shared"
+          + "kubernetes.io/role/elb"                = "1"
+        }
+      + vpc_id                                         = "vpc-035fa38c60898493c"
+    }
+
+  # module.logging_platform.module.vpc.aws_subnet.public[2] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "eu-west-2c"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.21.160.0/20"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name"                                  = "logging-eks-dev-vpc-public-eu-west-2c"
+          + "kubernetes.io/cluster/logging-eks-dev" = "shared"
+          + "kubernetes.io/role/elb"                = "1"
+        }
+      + tags_all                                       = {
+          + "Environment"                           = "dev"
+          + "ManagedBy"                             = "terraform"
+          + "Name"                                  = "logging-eks-dev-vpc-public-eu-west-2c"
+          + "Owner"                                 = "Qyon Limited"
+          + "Project"                               = "enterprise-k8s-logging"
+          + "kubernetes.io/cluster/logging-eks-dev" = "shared"
+          + "kubernetes.io/role/elb"                = "1"
+        }
+      + vpc_id                                         = "vpc-035fa38c60898493c"
+    }
+
+  # module.logging_platform.module.eks.module.eks_managed_node_group["es-data"].aws_eks_node_group.this[0] is tainted, so must be replaced
++/- resource "aws_eks_node_group" "this" {
+      ~ ami_type               = "AL2023_x86_64_STANDARD" -> (known after apply)
+      ~ arn                    = "arn:aws:eks:eu-west-2:686255973523:nodegroup/logging-eks-dev/es-data-2026090808563572870000001c/a0d0401d-e284-4e49-78ae-94eb5bffcd9f" -> (known after apply)
+      ~ disk_size              = 0 -> (known after apply)
+      ~ id                     = "logging-eks-dev:es-data-2026090808563572870000001c" -> (known after apply)
+      ~ node_group_name        = "es-data-2026090808563572870000001c" -> (known after apply)
+      ~ release_version        = "1.34.10-20260827" -> (known after apply)
+      ~ resources              = [
+          - {
+              - autoscaling_groups              = [
+                  - {
+                      - name = "eks-es-data-2026090808563572870000001c-a0d0401d-e284-4e49-78ae-94eb5bffcd9f"
+                    },
+                ]
+                # (1 unchanged attribute hidden)
+            },
+        ] -> (known after apply)
+      ~ status                 = "CREATE_FAILED" -> (known after apply)
+        tags                   = {
+            "Environment" = "dev"
+            "ManagedBy"   = "terraform"
+            "Name"        = "es-data"
+            "Owner"       = "Qyon Limited"
+            "Project"     = "enterprise-k8s-logging"
+        }
+        # (9 unchanged attributes hidden)
+
+      ~ launch_template {
+            id      = "lt-055b463cf6fbbe943"
+          ~ name    = "es-data-20260908085628549100000016" -> (known after apply)
+            # (1 unchanged attribute hidden)
+        }
+
+      ~ node_repair_config (known after apply)
+
+      ~ update_config {
+          - max_unavailable            = 0 -> null
+            # (1 unchanged attribute hidden)
+        }
+
+        # (3 unchanged blocks hidden)
+    }
+
+  # module.logging_platform.module.eks.module.eks_managed_node_group["es-master"].aws_eks_node_group.this[0] is tainted, so must be replaced
++/- resource "aws_eks_node_group" "this" {
+      ~ ami_type               = "AL2023_x86_64_STANDARD" -> (known after apply)
+      ~ arn                    = "arn:aws:eks:eu-west-2:686255973523:nodegroup/logging-eks-dev/es-master-20260908085635736300000020/92d0401d-e285-e9f9-b648-f25245475399" -> (known after apply)
+      ~ disk_size              = 0 -> (known after apply)
+      ~ id                     = "logging-eks-dev:es-master-20260908085635736300000020" -> (known after apply)
+      ~ node_group_name        = "es-master-20260908085635736300000020" -> (known after apply)
+      ~ release_version        = "1.34.10-20260827" -> (known after apply)
+      ~ resources              = [
+          - {
+              - autoscaling_groups              = [
+                  - {
+                      - name = "eks-es-master-20260908085635736300000020-92d0401d-e285-e9f9-b648-f25245475399"
+                    },
+                ]
+                # (1 unchanged attribute hidden)
+            },
+        ] -> (known after apply)
+      ~ status                 = "CREATE_FAILED" -> (known after apply)
+        tags                   = {
+            "Environment" = "dev"
+            "ManagedBy"   = "terraform"
+            "Name"        = "es-master"
+            "Owner"       = "Qyon Limited"
+            "Project"     = "enterprise-k8s-logging"
+        }
+        # (9 unchanged attributes hidden)
+
+      ~ launch_template {
+            id      = "lt-04db375b6f40bf24d"
+          ~ name    = "es-master-20260908085628553500000018" -> (known after apply)
+            # (1 unchanged attribute hidden)
+        }
+
+      ~ node_repair_config (known after apply)
+
+      ~ update_config {
+          - max_unavailable            = 0 -> null
+            # (1 unchanged attribute hidden)
+        }
+
+        # (3 unchanged blocks hidden)
+    }
+
+  # module.logging_platform.module.eks.module.eks_managed_node_group["general"].aws_eks_node_group.this[0] is tainted, so must be replaced
++/- resource "aws_eks_node_group" "this" {
+      ~ ami_type               = "AL2023_x86_64_STANDARD" -> (known after apply)
+      ~ arn                    = "arn:aws:eks:eu-west-2:686255973523:nodegroup/logging-eks-dev/general-2026090808563573600000001e/7cd0401d-e285-7b04-deba-599a7aaa3f24" -> (known after apply)
+      ~ disk_size              = 0 -> (known after apply)
+      ~ id                     = "logging-eks-dev:general-2026090808563573600000001e" -> (known after apply)
+      ~ node_group_name        = "general-2026090808563573600000001e" -> (known after apply)
+      ~ release_version        = "1.34.10-20260827" -> (known after apply)
+      ~ resources              = [
+          - {
+              - autoscaling_groups              = [
+                  - {
+                      - name = "eks-general-2026090808563573600000001e-7cd0401d-e285-7b04-deba-599a7aaa3f24"
+                    },
+                ]
+                # (1 unchanged attribute hidden)
+            },
+        ] -> (known after apply)
+      ~ status                 = "CREATE_FAILED" -> (known after apply)
+        tags                   = {
+            "Environment" = "dev"
+            "ManagedBy"   = "terraform"
+            "Name"        = "general"
+            "Owner"       = "Qyon Limited"
+            "Project"     = "enterprise-k8s-logging"
+        }
+        # (9 unchanged attributes hidden)
+
+      ~ launch_template {
+            id      = "lt-067d7cba3e105fe67"
+          ~ name    = "general-2026090808562856070000001a" -> (known after apply)
+            # (1 unchanged attribute hidden)
+        }
+
+      ~ node_repair_config (known after apply)
+
+      ~ update_config {
+          - max_unavailable            = 0 -> null
+            # (1 unchanged attribute hidden)
+        }
+
+        # (2 unchanged blocks hidden)
+    }
+
+Plan: 91 to add, 0 to change, 3 to destroy.
+
+Changes to Outputs:
+  + cert_manager_role_arn               = (known after apply)
+  + es_snapshot_access_key_id           = (sensitive value)
+  + es_snapshot_bucket                  = "qyon-logging-es-snapshots-dev"
+  + es_snapshot_secret_access_key       = (sensitive value)
+  + kibana_url                          = "https://kibana.dev.logging.qyonlimited.com"
+  + order_api_ecr_repository_url        = (known after apply)
+  + order_api_url                       = "https://order-api.dev.logging.qyonlimited.com"
+  + vault_init_secret_retrieval_command = "kubectl -n vault get secret vault-init -o jsonpath='{.data.root_token}' | base64 -d"
+  + vault_unseal_kms_key_arn            = (known after apply)
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
+Releasing state lock. This may take a few moments...

@@ -1,0 +1,36 @@
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+terraform.tfvars
+*.auto.tfvars
+backend.hcl
+# .terraform.lock.hcl is intentionally NOT ignored — commit it for
+# reproducible provider versions across machines.
+
+# Secrets / retrieved credentials — never commit these, they're pulled
+# live from the cluster/Vault during the walkthrough, not stored here.
+ca.crt
+*.pem
+*.key
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# k6
+summary.json
+
+# OS
+.DS_Store
+Thumbs.db
