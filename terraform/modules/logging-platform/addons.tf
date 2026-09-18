@@ -21,9 +21,9 @@ resource "helm_release" "aws_load_balancer_controller" {
 
   values = [
     yamlencode({
-      clusterName = module.eks.cluster_name
+      clusterName = var.cluster_name
       region      = var.aws_region
-      vpcId       = module.vpc.vpc_id
+      vpcId       = var.vpc_id
       serviceAccount = {
         create = true
         name   = "aws-load-balancer-controller" # must match aws_eks_pod_identity_association.aws_load_balancer_controller
@@ -31,10 +31,6 @@ resource "helm_release" "aws_load_balancer_controller" {
     })
   ]
 
-  depends_on = [
-    module.eks,
-    aws_eks_pod_identity_association.aws_load_balancer_controller,
-  ]
 }
 
 # --- ingress-nginx ---------------------------------------------------------
@@ -88,10 +84,7 @@ resource "helm_release" "cert_manager" {
     value = "cert-manager" # must match aws_eks_pod_identity_association.cert_manager
   }
 
-  depends_on = [
-    module.eks,
-    aws_eks_pod_identity_association.cert_manager,
-  ]
+  depends_on = []
 }
 
 # --- external-dns -------------------------------------------------------------
@@ -100,47 +93,6 @@ resource "helm_release" "cert_manager" {
 # balancer's hostname by hand) is what this eliminates. Scoped to only
 # the shared qyonlimited.com zone via the same IAM pattern as
 # cert-manager, not every zone in the account.
-resource "aws_iam_role" "external_dns" {
-  name = "${var.cluster_name}-external-dns"
-
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [{
-      Effect    = "Allow"
-      Principal = { Service = "pods.eks.amazonaws.com" }
-      Action    = ["sts:AssumeRole", "sts:TagSession"]
-    }]
-  })
-}
-
-resource "aws_iam_role_policy" "external_dns" {
-  name = "${var.cluster_name}-external-dns-route53"
-  role = aws_iam_role.external_dns.id
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect   = "Allow"
-        Action   = "route53:ChangeResourceRecordSets"
-        Resource = "arn:aws:route53:::hostedzone/${var.route53_hosted_zone_id}"
-      },
-      {
-        Effect   = "Allow"
-        Action   = ["route53:ListHostedZones", "route53:ListResourceRecordSets"]
-        Resource = "*" # ListHostedZones/ListResourceRecordSets don't support resource-level restriction — AWS API limitation, not a scoping choice
-      }
-    ]
-  })
-}
-
-resource "aws_eks_pod_identity_association" "external_dns" {
-  cluster_name    = module.eks.cluster_name
-  namespace       = "external-dns"
-  service_account = "external-dns"
-  role_arn        = aws_iam_role.external_dns.arn
-}
-
 resource "helm_release" "external_dns" {
   name             = "external-dns"
   repository       = "https://kubernetes-sigs.github.io/external-dns/"
@@ -172,10 +124,6 @@ resource "helm_release" "external_dns" {
     })
   ]
 
-  depends_on = [
-    module.eks,
-    aws_eks_pod_identity_association.external_dns,
-  ]
 }
 
 # --- ECK operator (Elastic Cloud on Kubernetes) --------------------------
@@ -192,5 +140,5 @@ resource "helm_release" "eck_operator" {
   version    = "2.14.0"
   namespace  = kubernetes_namespace_v1.elastic_system.metadata[0].name
 
-  depends_on = [module.eks, kubernetes_namespace_v1.elastic_system]
+  depends_on = [kubernetes_namespace_v1.elastic_system]
 }

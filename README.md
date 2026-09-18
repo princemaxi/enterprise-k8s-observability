@@ -1,185 +1,134 @@
-# Enterprise Kubernetes Logging Platform (ELK/Elastic Stack Capstone)
+# Enterprise Kubernetes Logging Platform
 
-A production-grade, highly available centralized logging platform for
-Kubernetes — VPC, EKS, every controller/operator it needs, Vault, the full
-Elastic Stack, and a demo Order API — brought up entirely by `terraform
-apply`. No separate `kubectl apply`, `helm install`, or manual bootstrap
-script. That is a deliberate, hard-won design constraint, not a marketing
-line — see `docs/architecture.md` for what this project looked like before
-that constraint was enforced, and `docs/troubleshooting.md` for the real
-incidents that drove it.
+This repository deploys the EKS-based enterprise logging stack, including
+Elasticsearch, Kibana, Filebeat, Vault, ingress, TLS, DNS, and the Order API.
+Terraform is intentionally split into two state boundaries:
 
-Read `docs/architecture.md` first for the design reasoning. This README is
-the build order. For exact commands with expected output at each step, see
-`docs/terminal-walkthrough.md`.
+```text
+terraform/infrastructure/environments/<env>
+        -> EKS and AWS resources
+terraform/platform/environments/<env>
+        -> Kubernetes and Helm resources
+```
 
-## What one `terraform apply` actually does
+The platform root reads EKS connection details from the infrastructure state
+with `terraform_remote_state`. It never declares a Kubernetes provider in the
+same state that creates EKS, so a clean deployment does not need
+`terraform apply -target`.
 
-In dependency order, automatically, no manual step in between any of these:
+## Deploy dev
 
-1. VPC, EKS cluster, 3 managed node groups (`es-master`, `es-data`, `general`)
-2. EKS Pod Identity Agent addon, plus Pod Identity associations for every
-   AWS-facing workload *except* Elasticsearch's S3 access (see the note
-   below)
-3. AWS Load Balancer Controller, ingress-nginx, cert-manager, external-dns,
-   the ECK operator — all as Terraform-managed Helm releases
-4. Vault — deployed, initialized exactly once, KMS-auto-unsealed, its
-   Kubernetes auth method configured, and the Order API's secret populated
-   — via `kubectl exec`, not a local Vault CLI or port-forward
-5. Elasticsearch and Kibana — applied as native custom resources, gated
-   behind a real cluster-health poll (not just "the API accepted my
-   request")
-6. ILM policy, index template, the S3 snapshot repository, SLM, and the
-   high-error-rate Watcher alert — bootstrapped automatically once
-   Elasticsearch is confirmed healthy
-7. Filebeat — its Elasticsearch credentials copied automatically from
-   ECK's own auto-generated secrets, no manual `kubectl create secret`
-8. The Order API's container image — built and pushed to ECR by Terraform
-   itself (`kreuzwerker/docker` provider), then deployed
-9. Ingress + TLS (cert-manager, DNS-01) and NetworkPolicies
-
-## Why Elasticsearch's S3 access is the one exception
-
-Every other AWS-facing workload here uses EKS Pod Identity — no OIDC
-federation, no ServiceAccount annotations. Elasticsearch's S3 snapshot
-access deliberately does **not**: both IRSA and Pod Identity were tried,
-and both hit real, currently-open upstream bugs specific to Elasticsearch's
-bundled `repository-s3` plugin. A narrowly-scoped IAM user, loaded into
-Elasticsearch's own keystore, is Elastic's own documented fallback for
-exactly this situation — see `docs/troubleshooting.md` for the incident
-history and the specific GitHub issues, if you're ever tempted to
-"simplify" this back to federated identity.
-
-## Environments
-
-dev, sit, and prod are **fully separate EKS clusters** — own VPC, own
-control plane, own Elasticsearch, own Vault — not shared namespaces in one
-cluster. They share a single Terraform module
-(`terraform/modules/logging-platform`); each environment is a thin wrapper
-passing in its own sizing.
-
-| | dev | sit | prod |
-|---|---|---|---|
-| Purpose | Functional correctness | HA/failover validation | Real traffic |
-| ES topology | 1 master, 1 data | 3 master (full quorum), 2 data | 3 master, 3 data |
-| Instance types | r6i.large / t3.medium | r6i.large / m6i.large | r6i.xlarge / m6i.large |
-| NAT gateways | 1 shared | 1 shared | 1 per AZ |
-| Order API replicas | 1 | 2 | 3 |
-| Snapshot retention | 7 days | 14 days | 90 days |
-| Domain | `*.dev.logging.qyonlimited.com` | `*.sit.logging.qyonlimited.com` | `*.logging.qyonlimited.com` |
-
-Every command below takes an environment (`terraform/environments/<env>`,
-or `make ENV=<env>`, defaults to `dev`). **`ENV` never defaults to
-`prod`** — you always have to say so explicitly.
-
-## Prerequisites
-
-- AWS CLI configured with permissions to create VPC/EKS/IAM/KMS/ECR/S3
-  resources
-- `terraform` >= 1.7, `kubectl` (for verification/troubleshooting only —
-  never required for the apply itself), `k6` (for load testing), `python3`
-  (used by `scripts/vault-bootstrap.sh` to parse `vault operator init`'s
-  JSON output — runs locally, not inside any pod)
-- Docker Engine running locally — Terraform's `docker` provider talks to
-  your local Docker daemon the same way `docker build` does, to build and
-  push the Order API image
-- A Route 53 hosted zone for `qyonlimited.com` — its DNS-01 solver and
-  external-dns both operate at the zone level, so `dev.`/`sit.`
-  subdomains need no per-environment DNS setup
-- An S3 bucket + DynamoDB table for Terraform remote state (see
-  `terraform/environments/dev/backend.hcl.example`) — one bucket holds all
-  three environments' state, each at its own key
-
-## Build order (repeat per environment)
+Prerequisites are Terraform >= 1.7, AWS CLI credentials, `kubectl`, Docker,
+and an S3 bucket plus DynamoDB lock table for Terraform state. Copy the two
+examples and configure their bucket/key values:
 
 ```bash
-cd terraform/environments/dev
-cp backend.hcl.example backend.hcl   # fill in your real state bucket/table
-cp terraform.tfvars.example terraform.tfvars   # fill in your real route53_hosted_zone_id
-
-terraform init -backend-config=backend.hcl
-terraform plan -out=tfplan
-terraform apply tfplan
+cp terraform/infrastructure/environments/dev/backend.hcl.example \
+  terraform/backend-dev-infrastructure.hcl
+cp terraform/platform/environments/dev/backend.hcl.example \
+  terraform/backend-dev-platform.hcl
 ```
 
-That's the whole build. Expect 25–35 minutes — EKS control plane and node
-group provisioning are the largest chunks, with Vault's init and
-Elasticsearch's health-poll gate adding real (necessary) wait time on top.
-
-Verify everything came up:
+Then run the complete lifecycle:
 
 ```bash
-cd ../../..
-make ENV=dev status
+./deploy-dev.sh
 ```
 
-Or manually:
-```bash
-$(cd terraform/environments/dev && terraform output -raw configure_kubectl)
-kubectl get nodes -L role
-kubectl -n elastic-system get elasticsearch,kibana
-kubectl -n vault get pods
-kubectl -n applications get pods,ingress
-```
+The script initializes, plans, and applies infrastructure, waits for the EKS
+control plane, updates kubeconfig, then initializes and applies the platform.
+It ends by checking nodes and all namespaces. It uses no `-target`.
 
-DNS is automatic (external-dns watches every Ingress), but propagation and
-cert issuance both take a few minutes after the apply finishes:
+## Destroy dev
 
 ```bash
-curl -k https://kibana.dev.logging.qyonlimited.com/api/status
-curl -k https://order-api.dev.logging.qyonlimited.com/health
+./destroy-dev.sh
 ```
 
-Load test:
+This destroys the platform state first and the infrastructure state second,
+so Kubernetes providers are not asked to contact an EKS cluster that has
+already been removed.
+
+## Environments and layout
+
+The same two-root layout exists for `dev`, `sit`, and `prod`:
+
+```text
+terraform/
+├── modules/
+│   ├── infrastructure/       # VPC, EKS, addons, IAM, S3, KMS, ECR
+│   └── logging-platform/     # Kubernetes resources and Helm releases
+├── infrastructure/environments/
+│   ├── dev/
+│   ├── sit/
+│   └── prod/
+└── platform/environments/
+    ├── dev/
+    ├── sit/
+    └── prod/
+```
+
+Infrastructure state keys are:
+
+```text
+enterprise-k8s-logging/<env>/infrastructure/terraform.tfstate
+enterprise-k8s-logging/<env>/platform/terraform.tfstate
+```
+
+The existing VPC, EKS version, node groups, IAM, ECR, S3, KMS, Route 53,
+Elastic, Vault, TLS, DNS, ingress, monitoring, and application settings are
+preserved in the split modules.
+
+## Existing-state migration
+
+This refactor does not automatically move a deployed single-state workspace.
+Before applying either new root to an existing environment, back up the old
+state and use `terraform state mv` to move AWS addresses into the
+infrastructure state and Kubernetes/Helm addresses into the platform state.
+The exact address list must be generated from the actual state. The old root is not part of this checkout. It must be checked out from the
+pre-split commit in a separate worktree (or accessed through an existing
+working directory) while the migration is performed:
+
 ```bash
-make ENV=dev perf-test
+terraform -chdir=/path/to/pre-split-worktree/terraform/environments/dev state list
+terraform -chdir=/path/to/pre-split-worktree/terraform/environments/dev state pull > dev-single-state-backup.json
 ```
 
-Full command-by-command detail, expected output at each stage, and what
-to check if a step is slower or different than expected: see
-`docs/terminal-walkthrough.md`.
+Initialize both destination roots with their real backend configuration, then
+move the state addresses below. The destination address matters because the
+root module wrapper changed from `logging_platform` to `infrastructure`:
 
-## Repository layout
-
-```
-enterprise-k8s-logging/
-├── Makefile                    # terraform apply is the platform; everything here is verification/troubleshooting only
-├── .github/workflows/          # terraform-ci.yml (fmt/validate/tflint/xref-check/shellcheck, matrix across all 3 envs)
-├── terraform/
-│   ├── modules/
-│   │   └── logging-platform/     # the entire platform — VPC, EKS, addons, Vault, ES/Kibana, Order API, ingress, network policies
-│   │       ├── scripts/             # vault-bootstrap.sh, es-bootstrap.sh(+remote), wait-for-elasticsearch.sh — all idempotent, all invoked by null_resource local-exec
-│   │       ├── templates/            # elasticsearch.yaml.tpl, kibana.yaml.tpl — one template per environment's sizing, not separate Kustomize patch files
-│   │       └── policies/              # vendored IAM policy JSON (ALB controller) — not fetched over the network at apply time
-│   └── environments/
-│       ├── dev/                  # thin wrapper: dev-sized variables + backend
-│       ├── sit/                   # thin wrapper: sit-sized variables + backend
-│       └── prod/                   # thin wrapper: prod-sized variables + backend
-├── app/                           # Order API source (Flask), Dockerfile — built by Terraform, not by hand
-├── vault/                          # vault-agent-annotations.yaml (reference only — the real thing lives in order-api.tf)
-├── dashboards/                      # Kibana index pattern bootstrap + dashboard spec (still a manual UI step — see docs/terminal-walkthrough.md)
-├── scripts/                          # perf-test.js (k6), tf-xref-check.py (CI + local Terraform validation)
-├── diagrams/                          # architecture.mermaid
-└── docs/
-    ├── architecture.md
-    ├── capacity-planning.md
-    ├── security.md
-    ├── maintenance.md
-    ├── troubleshooting.md
-    ├── cost-analysis.md
-    └── terminal-walkthrough.md
+```bash
+terraform -chdir=terraform/infrastructure/environments/dev state mv \
+  -state=dev-single-state.tfstate -state-out=dev-infrastructure.tfstate \
+  'module.logging_platform.module.vpc' 'module.infrastructure.module.vpc'
+terraform -chdir=terraform/infrastructure/environments/dev state mv \
+  -state=dev-single-state.tfstate -state-out=dev-infrastructure.tfstate \
+  'module.logging_platform.module.eks' 'module.infrastructure.module.eks'
+terraform -chdir=terraform/infrastructure/environments/dev state mv \
+  -state=dev-single-state.tfstate -state-out=dev-infrastructure.tfstate \
+  'module.logging_platform.aws_s3_bucket.es_snapshots' \
+  'module.infrastructure.aws_s3_bucket.es_snapshots'
+terraform -chdir=terraform/platform/environments/dev state mv \
+  -state=dev-single-state.tfstate -state-out=dev-platform.tfstate \
+  'module.logging_platform.kubernetes_namespace_v1.logging' \
+  'module.logging_platform.kubernetes_namespace_v1.logging'
 ```
 
-## Deliverables checklist (against the project brief)
+Repeat the same explicit `state mv` form for every address returned by
+`terraform state list`: VPC/EKS/IAM/S3/KMS/ECR/Pod Identity addresses go to
+infrastructure with the `module.logging_platform` to
+`module.infrastructure` prefix change; Kubernetes, Helm, kubectl, and
+`null_resource` platform addresses go to platform and retain the
+`module.logging_platform` prefix. Include every S3 subresource and managed
+IAM/Pod Identity address. Do not guess addresses or run a destination apply
+until `terraform plan` shows no unintended creates. If a state is remote,
+perform the moves with the backend configured for each destination and retain
+the state backup.
+The old `terraform/environments` roots are intentionally no longer
+deployable and are not present as active configuration here; retain a
+pre-split checkout until any legacy state migration has been completed.
 
-- [x] Architecture documentation — `docs/architecture.md`, `diagrams/architecture.mermaid`
-- [x] Infrastructure as Code — one Terraform module, zero separate `kubectl`/`helm` steps
-- [x] Application logging — `app/app.py` (structured JSON, 5 log levels, trace IDs)
-- [x] Performance test — `scripts/perf-test.js`
-- [x] Security — `docs/security.md`, native NetworkPolicies, Pod Identity, KMS-backed Vault auto-unseal
-- [x] Maintenance documentation — `docs/maintenance.md`
-- [x] Cost analysis — `docs/cost-analysis.md`
-- [x] Troubleshooting guide — `docs/troubleshooting.md`
-- [x] CI (lint/validate) — `.github/workflows/terraform-ci.yml`
-- [x] Multi-environment (dev/sit/prod) — this section
-- [x] Fully automated single-command bring-up — this section, and the reasoning in `docs/architecture.md`
+See [docs/architecture.md](docs/architecture.md),
+[docs/terminal-walkthrough.md](docs/terminal-walkthrough.md), and
+[docs/troubleshooting.md](docs/troubleshooting.md) for operational detail.

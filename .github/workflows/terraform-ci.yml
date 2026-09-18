@@ -28,10 +28,14 @@ jobs:
       - run: pip install python-hcl2
       - run: |
           python3 scripts/tf-xref-check.py \
+            terraform/modules/infrastructure \
             terraform/modules/logging-platform \
-            terraform/environments/dev \
-            terraform/environments/sit \
-            terraform/environments/prod
+            terraform/infrastructure/environments/dev \
+            terraform/infrastructure/environments/sit \
+            terraform/infrastructure/environments/prod \
+            terraform/platform/environments/dev \
+            terraform/platform/environments/sit \
+            terraform/platform/environments/prod
 
   shellcheck:
     runs-on: ubuntu-latest
@@ -47,10 +51,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        environment: [dev, sit, prod]
+        root:
+          - terraform/infrastructure/environments/dev
+          - terraform/infrastructure/environments/sit
+          - terraform/infrastructure/environments/prod
+          - terraform/platform/environments/dev
+          - terraform/platform/environments/sit
+          - terraform/platform/environments/prod
     defaults:
       run:
-        working-directory: terraform/environments/${{ matrix.environment }}
+        working-directory: ${{ matrix.root }}
     steps:
       - uses: actions/checkout@v4
 

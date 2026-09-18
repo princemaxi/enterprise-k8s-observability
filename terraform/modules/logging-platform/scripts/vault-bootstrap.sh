@@ -98,7 +98,7 @@ path "secret/data/logging-eks-${ENVIRONMENT}/order-api" {
 POLICY
 
 # dev, sit, and prod are fully separate EKS clusters (see
-# terraform/environments/), so each needs its OWN Kubernetes auth mount
+# terraform/platform/environments/), so each needs its OWN Kubernetes auth mount
 # pointed at that cluster's own API server — a single shared
 # auth/kubernetes mount can only validate JWTs from one cluster's service
 # account issuer.

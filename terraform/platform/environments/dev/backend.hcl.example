@@ -1,0 +1,5 @@
+bucket         = "qyon-terraform-state"
+key            = "enterprise-k8s-logging/dev/platform/terraform.tfstate"
+region         = "eu-west-2"
+dynamodb_table = "qyon-terraform-locks"
+encrypt        = true

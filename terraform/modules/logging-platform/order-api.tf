@@ -1,29 +1,3 @@
-# --- ECR repository ---------------------------------------------------------
-resource "aws_ecr_repository" "order_api" {
-  name                 = "${var.cluster_name}-order-api"
-  image_tag_mutability = var.environment == "prod" ? "IMMUTABLE" : "MUTABLE" # prod tags should never be silently overwritten
-
-  image_scanning_configuration {
-    scan_on_push = true
-  }
-}
-
-resource "aws_ecr_lifecycle_policy" "order_api" {
-  repository = aws_ecr_repository.order_api.name
-  policy = jsonencode({
-    rules = [{
-      rulePriority = 1
-      description  = "Keep last 10 images"
-      selection = {
-        tagStatus   = "any"
-        countType   = "imageCountMoreThan"
-        countNumber = 10
-      }
-      action = { type = "expire" }
-    }]
-  })
-}
-
 # --- Docker build + push, no manual `docker build`/`docker push`/`docker login` ---
 locals {
   # Rebuilds the image whenever any file under app_source_path changes —
@@ -37,7 +11,7 @@ locals {
   # Deployment (which references this same value) is guaranteed to see a
   # new image reference and roll out, rather than depending on digest
   # comparison inside the registry_image resource to catch it.
-  order_api_image = "${aws_ecr_repository.order_api.repository_url}:${var.order_api.image_tag}-${substr(local.app_source_hash, 0, 8)}"
+  order_api_image = "${var.order_api_ecr_repository_url}:${var.order_api.image_tag}-${substr(local.app_source_hash, 0, 8)}"
 }
 
 resource "docker_image" "order_api" {

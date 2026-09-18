@@ -23,5 +23,4 @@ resource "kubernetes_storage_class_v1" "es_gp3" {
     encrypted = "true"
   }
 
-  depends_on = [module.eks]
 }

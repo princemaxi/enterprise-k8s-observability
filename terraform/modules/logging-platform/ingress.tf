@@ -25,7 +25,6 @@ resource "kubectl_manifest" "cluster_issuer" {
 
   depends_on = [
     helm_release.cert_manager,
-    aws_eks_pod_identity_association.cert_manager,
   ]
 }
 

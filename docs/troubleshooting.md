@@ -141,7 +141,7 @@ recurring.
   aws eks describe-addon-versions --kubernetes-version <candidate> \
     --addon-name aws-ebs-csi-driver --query 'addons[].addonVersions[0].addonVersion' --output text
   ```
-  Bump `cluster_version` in `terraform/environments/<env>/variables.tf`.
+  Bump `cluster_version` in `terraform/infrastructure/environments/<env>/variables.tf`.
 - **Prevention**: don't let `cluster_version` sit unreviewed for a long
   period — EKS versions have a fixed support lifecycle (roughly 14 months
   standard + 12 months extended from GA).
@@ -283,7 +283,7 @@ written.
 
 **What's actually deployed**: a narrowly-scoped IAM user (access to
 nothing but this one S3 bucket — `aws_iam_user.es_snapshots` in
-`terraform/modules/logging-platform/s3.tf`), loaded into Elasticsearch's
+`terraform/modules/infrastructure/aws-resources.tf`), loaded into Elasticsearch's
 own keystore via `spec.secureSettings` on the Elasticsearch CR. This is
 Elastic's own documented fallback for exactly this situation, and has no
 equivalent open bugs against it. The trade-off is a static, long-lived

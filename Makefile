@@ -1,11 +1,14 @@
 .PHONY: help tf-init tf-plan tf-apply tf-destroy kubeconfig \
         status vault-root-token perf-test smoke-test clean
 
-# ENV selects the Terraform environment (terraform/environments/$(ENV)).
+# ENV selects the Terraform environment in both split Terraform roots.
 # Defaults to dev deliberately — targeting prod always requires an
 # explicit `make ENV=prod <target>`, never the bare default.
 ENV ?= dev
-TF_DIR := terraform/environments/$(ENV)
+INFRA_DIR := terraform/infrastructure/environments/$(ENV)
+PLATFORM_DIR := terraform/platform/environments/$(ENV)
+INFRA_BACKEND ?= terraform/backend-$(ENV)-infrastructure.hcl
+PLATFORM_BACKEND ?= terraform/backend-$(ENV)-platform.hcl
 
 KIBANA_URL    ?= https://kibana.$(ENV).logging.qyonlimited.com
 ORDER_API_URL ?= https://order-api.$(ENV).logging.qyonlimited.com
@@ -24,20 +27,25 @@ help: ## Show this help
 ## alerting). Nothing else in this Makefile is part of getting the
 ## platform live — everything below is verification/troubleshooting only.
 
-tf-init: ## terraform init for $(ENV) (expects terraform/environments/$(ENV)/backend.hcl — copy from backend.hcl.example)
-	cd $(TF_DIR) && terraform init -backend-config=backend.hcl
+tf-init: ## initialize both Terraform roots for $(ENV)
+	test -f $(INFRA_BACKEND) && test -f $(PLATFORM_BACKEND)
+	cd $(INFRA_DIR) && terraform init -backend-config=$(abspath $(INFRA_BACKEND))
+	cd $(PLATFORM_DIR) && terraform init -backend-config=$(abspath $(PLATFORM_BACKEND))
 
-tf-plan: ## terraform plan for $(ENV)
-	cd $(TF_DIR) && terraform plan -out=tfplan
+tf-plan: ## plan both Terraform roots for $(ENV)
+	cd $(INFRA_DIR) && terraform plan -out=tfplan
+	cd $(PLATFORM_DIR) && terraform plan -out=tfplan
 
-tf-apply: ## terraform apply the last plan for $(ENV) — this is the whole platform
-	cd $(TF_DIR) && terraform apply tfplan
+tf-apply: ## apply both Terraform roots for $(ENV)
+	cd $(INFRA_DIR) && terraform apply tfplan
+	cd $(PLATFORM_DIR) && terraform apply tfplan
 
-tf-destroy: ## terraform destroy for $(ENV) (does NOT delete orphaned EBS volumes — see docs/terminal-walkthrough.md)
-	cd $(TF_DIR) && terraform destroy
+tf-destroy: ## destroy platform before infrastructure for $(ENV)
+	cd $(PLATFORM_DIR) && terraform destroy
+	cd $(INFRA_DIR) && terraform destroy
 
 kubeconfig: ## Configure kubectl for manual troubleshooting — Terraform itself never depends on you having run this
-	cd $(TF_DIR) && $$(terraform output -raw configure_kubectl)
+	cd $(PLATFORM_DIR) && $$(terraform output -raw configure_kubectl)
 	kubectl get nodes -L role
 
 ## --- Verification -----------------------------------------------------------
@@ -68,4 +76,4 @@ smoke-test: ## Cluster health + doc count sanity check for $(ENV) (requires kube
 		-u "elastic:$$ES_PASS" "https://logging-es-http.elastic-system.svc:9200/_cluster/health?pretty"
 
 clean: ## Remove local scratch files (does not touch the cluster or AWS resources)
-	rm -f terraform/environments/*/tfplan
+	rm -f terraform/infrastructure/environments/*/tfplan terraform/platform/environments/*/tfplan

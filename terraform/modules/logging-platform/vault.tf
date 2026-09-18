@@ -28,17 +28,6 @@
 #      a fresh random value. The root token is written straight into a
 #      Kubernetes Secret — never printed, never in Terraform state.
 
-resource "aws_kms_key" "vault_unseal" {
-  description             = "${var.cluster_name} Vault auto-unseal key"
-  deletion_window_in_days = 7
-  enable_key_rotation     = true
-}
-
-resource "aws_kms_alias" "vault_unseal" {
-  name          = "alias/${var.cluster_name}-vault-unseal"
-  target_key_id = aws_kms_key.vault_unseal.key_id
-}
-
 resource "helm_release" "vault" {
   name       = "vault"
   repository = "https://helm.releases.hashicorp.com"
@@ -85,7 +74,7 @@ resource "helm_release" "vault" {
               }
               seal "awskms" {
                 region     = "${var.aws_region}"
-                kms_key_id = "${aws_kms_key.vault_unseal.key_id}"
+                kms_key_id = "${var.vault_unseal_kms_key_id}"
               }
             EOT
           }
@@ -100,8 +89,6 @@ resource "helm_release" "vault" {
   # didn't exist yet), and the init step below timed out waiting for a
   # pod that could never actually come up.
   depends_on = [
-    module.eks,
-    aws_eks_pod_identity_association.vault,
     kubernetes_storage_class_v1.es_gp3,
     kubernetes_namespace_v1.vault,
   ]
@@ -119,7 +106,7 @@ resource "null_resource" "vault_bootstrap" {
     interpreter = ["/bin/bash", "-c"]
     command     = "${path.module}/scripts/vault-bootstrap.sh"
     environment = {
-      CLUSTER_NAME = module.eks.cluster_name
+      CLUSTER_NAME = var.cluster_name
       AWS_REGION   = var.aws_region
       NAMESPACE    = "vault"
       ENVIRONMENT  = var.environment

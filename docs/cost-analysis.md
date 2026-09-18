@@ -31,7 +31,7 @@ stateful workload, but it's also the first place to look when optimizing.
    day 3 is the single biggest lever, since it reduces the bytes that sit
    on the more expensive `es-data` node storage for the bulk of the
    30-day window.
-2. **Snapshot lifecycle to Glacier** (`terraform/modules/logging-platform/s3.tf`,
+2. **Snapshot lifecycle to Glacier** (`terraform/modules/infrastructure/s3.tf`,
    `aws_s3_bucket_lifecycle_configuration`): keeps the long-term DR copy
    an order of magnitude cheaper than hot ES storage, since it's rarely
    accessed.

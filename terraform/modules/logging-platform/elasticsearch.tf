@@ -1,15 +1,15 @@
 # The S3 snapshot keystore Secret — previously required a manual
 # `kubectl create secret` / `make es-secrets` step after `terraform
 # apply` finished, reading Terraform outputs by hand. Now populated
-# directly from the same IAM access key (s3.tf) in the same apply.
+# directly from the infrastructure state's IAM access key output.
 resource "kubernetes_secret_v1" "es_snapshot_credentials" {
   metadata {
     name      = "es-snapshot-credentials"
     namespace = kubernetes_namespace_v1.elastic_system.metadata[0].name
   }
   data = {
-    "s3.client.default.access_key" = aws_iam_access_key.es_snapshots.id
-    "s3.client.default.secret_key" = aws_iam_access_key.es_snapshots.secret
+    "s3.client.default.access_key" = var.es_snapshot_access_key_id
+    "s3.client.default.secret_key" = var.es_snapshot_secret_access_key
   }
 }
 
@@ -61,7 +61,7 @@ resource "null_resource" "wait_for_elasticsearch" {
     interpreter = ["/bin/bash", "-c"]
     command     = "${path.module}/scripts/wait-for-elasticsearch.sh"
     environment = {
-      CLUSTER_NAME = module.eks.cluster_name
+      CLUSTER_NAME = var.cluster_name
       AWS_REGION   = var.aws_region
       NAMESPACE    = kubernetes_namespace_v1.elastic_system.metadata[0].name
     }
@@ -103,10 +103,10 @@ resource "null_resource" "es_bootstrap" {
     interpreter = ["/bin/bash", "-c"]
     command     = "${path.module}/scripts/es-bootstrap.sh"
     environment = {
-      CLUSTER_NAME     = module.eks.cluster_name
+      CLUSTER_NAME     = var.cluster_name
       AWS_REGION       = var.aws_region
       NAMESPACE        = kubernetes_namespace_v1.elastic_system.metadata[0].name
-      SNAPSHOT_BUCKET  = aws_s3_bucket.es_snapshots.bucket
+      SNAPSHOT_BUCKET  = var.es_snapshot_bucket
       SLM_EXPIRE_AFTER = var.slm_expire_after
       ALERT_EMAIL      = var.alert_email
     }

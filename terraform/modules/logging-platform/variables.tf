@@ -17,67 +17,35 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "cluster_version" {
-  description = "Kubernetes version"
-  type        = string
-  default     = "1.34" # 1.30 reached end of EKS extended support Aug 2026 — always passed
-  # explicitly by every environment's main.tf, so this default is a
-  # safety net only, for any future environment that forgets to pass it.
+variable "vpc_id" {
+  type = string
+}
+
+variable "es_snapshot_bucket" {
+  type = string
+}
+
+variable "es_snapshot_access_key_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "es_snapshot_secret_access_key" {
+  type      = string
+  sensitive = true
+}
+
+variable "vault_unseal_kms_key_id" {
+  type = string
+}
+
+variable "order_api_ecr_repository_url" {
+  type = string
 }
 
 variable "route53_hosted_zone_id" {
   description = "Route53 hosted zone ID for the shared qyonlimited.com zone — scopes the cert-manager IRSA role to only this zone's DNS-01 challenge records, not every zone in the account. Get it with: aws route53 list-hosted-zones-by-name --dns-name qyonlimited.com --query \"HostedZones[0].Id\" --output text"
   type        = string
-}
-
-variable "vpc_cidr" {
-  description = "CIDR block for this environment's VPC — must not overlap other environments if they're ever peered"
-  type        = string
-}
-
-variable "azs" {
-  description = "Availability zones to spread nodes/storage across"
-  type        = list(string)
-  default     = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
-}
-
-variable "single_nat_gateway" {
-  description = "Use one shared NAT gateway instead of one-per-AZ. Fine for dev/sit (cost saving, no HA requirement); never set true for prod — a single NAT is a single point of egress failure across all 3 AZs."
-  type        = bool
-  default     = false
-}
-
-variable "es_node_instance_type" {
-  description = "Instance type for Elasticsearch data/master nodes"
-  type        = string
-}
-
-variable "general_node_instance_type" {
-  description = "Instance type for general workloads (Kibana, Filebeat, app, ingress)"
-  type        = string
-}
-
-variable "es_data_node_desired_count" {
-  type = number
-}
-
-variable "es_master_node_desired_count" {
-  type = number
-}
-
-variable "general_node_desired_count" {
-  type = number
-}
-
-variable "snapshot_bucket_name" {
-  description = "S3 bucket for Elasticsearch snapshots (must be globally unique — include the environment name)"
-  type        = string
-}
-
-variable "snapshot_retention_days" {
-  description = "Days before S3 snapshots expire. Prod should outlive the 30-day hot index retention for real DR; dev/sit can be much shorter since they're not protecting production data."
-  type        = number
-  default     = 90
 }
 
 variable "domain_name" {

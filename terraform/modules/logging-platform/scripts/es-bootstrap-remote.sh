@@ -103,7 +103,7 @@ fi
 echo "==> Registering S3 snapshot repository: ${SNAPSHOT_BUCKET}"
 # Credentials come from the ES keystore (spec.secureSettings), populated
 # by Terraform from a scoped IAM user — not IRSA/Pod-Identity. See
-# terraform/modules/logging-platform/s3.tf for why.
+# terraform/modules/infrastructure/aws-resources.tf for why.
 curl_es -X PUT "${ES_URL}/_snapshot/s3_repository" \
   -H 'Content-Type: application/json' \
   -d '{

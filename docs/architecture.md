@@ -2,6 +2,23 @@
 
 ## Overview
 
+## Terraform state boundary
+
+Terraform is split into two roots per environment. The infrastructure root
+owns only AWS resources and exports the EKS name, endpoint, CA, region, VPC,
+ECR, S3, KMS, and IAM values needed by the platform. The platform root reads
+those values with `data.terraform_remote_state.infrastructure` and is the
+only root that configures the Kubernetes, Helm, and kubectl providers.
+
+```text
+Infrastructure state -> EKS outputs -> Platform state -> Kubernetes API
+```
+
+This prevents Terraform from initializing a Kubernetes provider while the
+cluster it needs is still being created. Creation and destruction are
+therefore ordered by the root deployment scripts, not by `-target` or by a
+provider `depends_on`.
+
 A dedicated EKS cluster (`logging-eks`, `eu-west-2`) runs a highly available
 Elastic Stack for centralized log collection from Kubernetes workloads. The
 stack is deployed via the ECK (Elastic Cloud on Kubernetes) operator rather

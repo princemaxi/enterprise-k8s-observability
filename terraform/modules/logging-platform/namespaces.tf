@@ -20,7 +20,6 @@ resource "kubernetes_namespace_v1" "elastic_system" {
       "name"                               = "elastic-system"
     }
   }
-  depends_on = [module.eks]
 }
 
 resource "kubernetes_namespace_v1" "logging" {
@@ -31,7 +30,6 @@ resource "kubernetes_namespace_v1" "logging" {
       "name"                               = "logging"
     }
   }
-  depends_on = [module.eks]
 }
 
 resource "kubernetes_namespace_v1" "applications" {
@@ -42,7 +40,6 @@ resource "kubernetes_namespace_v1" "applications" {
       "name"                               = "applications"
     }
   }
-  depends_on = [module.eks]
 }
 
 resource "kubernetes_namespace_v1" "monitoring" {
@@ -53,7 +50,6 @@ resource "kubernetes_namespace_v1" "monitoring" {
       "name"                               = "monitoring"
     }
   }
-  depends_on = [module.eks]
 }
 
 # vault gets its own explicit resource (rather than helm_release.vault's
@@ -68,5 +64,4 @@ resource "kubernetes_namespace_v1" "vault" {
       "name"                               = "vault"
     }
   }
-  depends_on = [module.eks]
 }
