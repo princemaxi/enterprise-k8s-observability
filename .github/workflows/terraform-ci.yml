@@ -44,7 +44,7 @@ jobs:
       - name: shellcheck every bash script
         run: |
           sudo apt-get update && sudo apt-get install -y shellcheck
-          find . -name '*.sh' -print0 | xargs -0 -n1 shellcheck -e SC1091
+          git ls-files '*.sh' -z | xargs -0 -r -n1 shellcheck -e SC1091
 
   validate:
     needs: [xref-check]

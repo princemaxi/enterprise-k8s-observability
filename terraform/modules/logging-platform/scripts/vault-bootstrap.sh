@@ -29,7 +29,7 @@ echo "==> Configuring kubectl for ${CLUSTER_NAME}"
 aws eks update-kubeconfig --name "${CLUSTER_NAME}" --region "${AWS_REGION}" >/dev/null
 
 echo "==> Waiting for vault-0 to exist and be scheduled"
-for i in $(seq 1 30); do
+for _ in {1..30}; do
   if kubectl -n "${NAMESPACE}" get pod vault-0 >/dev/null 2>&1; then
     break
   fi
@@ -44,7 +44,7 @@ kubectl -n "${NAMESPACE}" wait --for=condition=PodScheduled pod/vault-0 --timeou
 #   1 = a real error (vault binary/API unreachable)
 #   2 = running but sealed or uninitialized (the case we're waiting past)
 echo "==> Waiting for the Vault API to respond"
-for i in $(seq 1 30); do
+for _ in {1..30}; do
   set +e
   kubectl -n "${NAMESPACE}" exec vault-0 -- vault status >/tmp/vault-status.out 2>&1
   code=$?

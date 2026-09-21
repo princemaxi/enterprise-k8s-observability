@@ -15,7 +15,7 @@ echo "==> Configuring kubectl for ${CLUSTER_NAME}"
 aws eks update-kubeconfig --name "${CLUSTER_NAME}" --region "${AWS_REGION}" >/dev/null
 
 echo "==> Waiting for Elasticsearch to report green (up to 20 minutes)"
-for i in $(seq 1 120); do
+for i in {1..120}; do
   health=$(kubectl -n "${NAMESPACE}" get elasticsearch logging -o jsonpath='{.status.health}' 2>/dev/null || echo "")
   if [ "$health" = "green" ]; then
     echo "==> Elasticsearch is green"
