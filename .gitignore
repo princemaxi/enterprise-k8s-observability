@@ -35,3 +35,11 @@ summary.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Terraform generated artifacts
+*.tfplan
+**/tfplan
+.terraform/
+*.tfstate
+*.tfstate.*
+
