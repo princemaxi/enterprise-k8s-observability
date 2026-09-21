@@ -56,17 +56,18 @@ Scaling now means editing a Terraform variable and re-applying — never
 hand-edit the rendered CR directly, since the next `terraform apply` would
 just overwrite that edit.
 
-- **Add data nodes**: bump `elasticsearch.data_count` (and, if genuinely
-  needed, `data_storage_gb`) in the target environment's `terraform.tfvars`,
-  then `terraform apply` — this updates both the Elasticsearch CR's
-  `nodeSets[].count` (via `templates/elasticsearch.yaml.tpl`) and the
-  corresponding EKS node group's `desired_size` in the same run, so
-  capacity exists before ECK tries to schedule the new pods rather than
-  needing two separate applies in the right order.
+- **Add data nodes**: edit the live target environment's `terraform.tfvars`
+  (not a copied template) to bump `elasticsearch.data_count` (and, if
+  genuinely needed, `data_storage_gb`), then `terraform apply` — this updates
+  both the Elasticsearch CR's `nodeSets[].count` (via
+  `templates/elasticsearch.yaml.tpl`) and the corresponding EKS node group's
+  `desired_size` in the same run, so capacity exists before ECK tries to
+  schedule the new pods rather than needing two separate applies in the right
+  order.
 - **Add master nodes**: keep this an odd number (3 or 5) — even numbers
   don't improve quorum tolerance and just cost more.
-- **Scale Kibana**: `kibana.replicas` in `terraform.tfvars`; stateless, so
-  this is low-risk.
+- **Scale Kibana**: edit the live `kibana.replicas` value in the environment's
+  `terraform.tfvars`; stateless, so this is low-risk.
 
 ## Snapshot restore (disaster recovery drill)
 

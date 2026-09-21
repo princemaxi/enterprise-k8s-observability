@@ -1,7 +1,0 @@
-# Copy to backend.hcl (gitignored) and fill in real values, then:
-#   terraform init -backend-config=backend.hcl
-bucket         = "qyon-terraform-state"
-key            = "enterprise-k8s-logging/sit/terraform.tfstate"
-region         = "eu-west-2"
-dynamodb_table = "qyon-terraform-locks"
-encrypt        = true

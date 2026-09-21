@@ -9,7 +9,7 @@ platform_backend_file="${TF_PLATFORM_BACKEND_FILE:-$repo_root/terraform/backend-
 
 if [[ ! -f "$infra_backend_file" || ! -f "$platform_backend_file" ]]; then
   echo "Missing infrastructure or platform backend config." >&2
-  echo "Copy both backend.hcl.example files to terraform/backend-dev-infrastructure.hcl and terraform/backend-dev-platform.hcl." >&2
+  echo "Copy both backend.hcl files into terraform/backend-dev-infrastructure.hcl and terraform/backend-dev-platform.hcl." >&2
   exit 1
 fi
 

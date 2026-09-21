@@ -152,6 +152,16 @@ def complete_request(response):
 # =====================================================
 # Health and metrics endpoints
 # =====================================================
+@app.route("/")
+def index():
+    return jsonify(
+        status="healthy",
+        service=SERVICE_NAME,
+        version=VERSION,
+        endpoints=["/health", "/products", "/login", "/payment", "/metrics"],
+    ), 200
+
+
 @app.route("/health")
 def health():
     # Deliberately not logged at INFO — Kubernetes probes fire every few

@@ -26,6 +26,7 @@ module "logging_platform" {
   elasticsearch          = var.elasticsearch
   kibana                 = var.kibana
   order_api              = var.order_api
+  app_source_path        = abspath("${path.module}/../../../../app")
   slm_expire_after       = var.slm_expire_after
   alert_email            = var.alert_email
 }

@@ -19,15 +19,19 @@ same state that creates EKS, so a clean deployment does not need
 ## Deploy dev
 
 Prerequisites are Terraform >= 1.7, AWS CLI credentials, `kubectl`, Docker,
-and an S3 bucket plus DynamoDB lock table for Terraform state. Copy the two
-examples and configure their bucket/key values:
+and an S3 bucket plus DynamoDB lock table for Terraform state. Use the real
+backend files in your environment and copy them into the workspace root if you
+need the script-local paths used by the deployment automation:
 
 ```bash
-cp terraform/infrastructure/environments/dev/backend.hcl.example \
+cp terraform/infrastructure/environments/dev/backend.hcl \
   terraform/backend-dev-infrastructure.hcl
-cp terraform/platform/environments/dev/backend.hcl.example \
+cp terraform/platform/environments/dev/backend.hcl \
   terraform/backend-dev-platform.hcl
 ```
+
+The repo does not keep placeholder backend or tfvars templates in the live
+deployment path; the active files are the real configuration files to edit.
 
 Then run the complete lifecycle:
 

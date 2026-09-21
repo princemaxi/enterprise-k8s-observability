@@ -91,6 +91,7 @@ resource "helm_release" "vault" {
   depends_on = [
     kubernetes_storage_class_v1.es_gp3,
     kubernetes_namespace_v1.vault,
+    helm_release.aws_load_balancer_controller,
   ]
 }
 
