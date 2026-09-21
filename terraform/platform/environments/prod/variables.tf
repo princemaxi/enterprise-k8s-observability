@@ -19,7 +19,7 @@ variable "alert_email" {
 }
 
 variable "domain_name" {
-  description = "Base domain for Kibana/Order-API ingress (delegated zone) — informational, not wired into any Terraform resource; the plain-YAML ingress manifests must be kept in sync with this by hand"
+  description = "Base domain for the public Kibana and Order API ingress. This is used by the Terraform kubernetes_ingress_v1 resources and the matching Route53/dns entries."
   type        = string
   default     = "logging.qyonlimited.com"
 }

@@ -19,9 +19,9 @@ same state that creates EKS, so a clean deployment does not need
 ## Deploy dev
 
 Prerequisites are Terraform >= 1.7, AWS CLI credentials, `kubectl`, Docker,
-and an S3 bucket plus DynamoDB lock table for Terraform state. Use the real
-backend files in your environment and copy them into the workspace root if you
-need the script-local paths used by the deployment automation:
+and an S3 bucket plus DynamoDB lock table for Terraform state. The split-root
+workflow expects the real backend files in the environment directories and the
+repo-root copies used by the helper scripts:
 
 ```bash
 cp terraform/infrastructure/environments/dev/backend.hcl \
@@ -30,8 +30,10 @@ cp terraform/platform/environments/dev/backend.hcl \
   terraform/backend-dev-platform.hcl
 ```
 
-The repo does not keep placeholder backend or tfvars templates in the live
-deployment path; the active files are the real configuration files to edit.
+The live deployment files are real configuration, not placeholders. Edit the
+real files in the environment directories and the generated repo-root copies used
+by `deploy-dev.sh` and `destroy-dev.sh` only when you need the script-local
+paths.
 
 Then run the complete lifecycle:
 
@@ -52,6 +54,29 @@ It ends by checking nodes and all namespaces. It uses no `-target`.
 This destroys the platform state first and the infrastructure state second,
 so Kubernetes providers are not asked to contact an EKS cluster that has
 already been removed.
+
+## Promotion from dev to sit to prod
+
+Use the environment progression as a controlled release pipeline, not as a
+single shared workspace:
+
+1. `dev` is for rapid iteration, debugging, app wiring, and operator training.
+2. `sit` is a near-production validation environment. Run the same Terraform
+   plan/apply flow, smoke tests, dashboard validation, and change windows as you
+   would in production, but with a smaller workload profile.
+3. `prod` is the protected operating environment. Only merge code or Terraform
+   changes after the same plan has passed in `sit`, and require approval before
+   apply.
+
+The production practice is:
+
+- keep `dev` ephemeral and disposable
+- promote only tested, versioned changes from `dev` into `sit`
+- promote verified, approved changes from `sit` into `prod`
+- store backend and tfvars values in the real deployment account, not in git
+- require code review, CI validation, and a planned change window for all prod
+  changes
+- use separate state keys and environment-specific domain names for each tier
 
 ## Environments and layout
 

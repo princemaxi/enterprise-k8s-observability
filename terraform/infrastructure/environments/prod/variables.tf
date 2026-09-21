@@ -80,7 +80,7 @@ variable "snapshot_retention_days" {
 }
 
 variable "domain_name" {
-  description = "Base domain for Kibana/Order-API ingress (delegated zone) — informational, not wired into any Terraform resource; the plain-YAML ingress manifests must be kept in sync with this by hand"
+  description = "Base domain for the public Kibana and Order API ingress. The live ingress is created by Terraform via kubernetes_ingress_v1 resources and must remain aligned with the environment-specific DNS names."
   type        = string
   default     = "logging.qyonlimited.com"
 }

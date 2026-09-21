@@ -119,7 +119,7 @@ Edit the live dev tfvars file directly, not a copied template:
 terraform/infrastructure/environments/dev/terraform.tfvars
 ```
 
-Then update `route53_hosted_zone_id` and any values you want to override for the dev environment. This repo keeps the real environment variables in place instead of relying on `*.example` placeholders.
+Then update `route53_hosted_zone_id` and any values you want to override for the dev environment. This repo keeps the real environment variables in place and edits only the active configuration files used by the stack.
 
 The current stack uses the shared `qyonlimited.com` Route53 zone and environment-specific subdomains, such as:
 
@@ -147,6 +147,27 @@ This script does the following in order:
 7. Verifies the cluster and basic pod state.
 
 This matches the repo architecture exactly: infrastructure and platform are intentionally separated, and the platform root does not initialize until infrastructure outputs are available.
+
+Promotion flow for real environments:
+
+```bash
+# 1. validate in dev
+./deploy-dev.sh
+
+# 2. promote the same code and approved Terraform to sit
+terraform -chdir=terraform/infrastructure/environments/sit init -backend-config=backend.hcl
+terraform -chdir=terraform/infrastructure/environments/sit plan
+terraform -chdir=terraform/platform/environments/sit init -backend-config=backend.hcl
+terraform -chdir=terraform/platform/environments/sit plan
+
+# 3. after sit passes smoke tests and approval, apply to prod
+terraform -chdir=terraform/infrastructure/environments/prod init -backend-config=backend.hcl
+terraform -chdir=terraform/infrastructure/environments/prod plan
+terraform -chdir=terraform/platform/environments/prod init -backend-config=backend.hcl
+terraform -chdir=terraform/platform/environments/prod plan
+```
+
+This is the production-friendly pattern: use dev for experimentation, sit for near-production validation, and prod for controlled release with approval gates and state separation.
 
 You can also run the equivalent Terraform targets directly:
 
